@@ -13,8 +13,13 @@ Smart Invest Application is going to be written in React, using ReactStrap, Boot
 ## Stock API Provider:  https://www.alphavantage.co
 
 ## Initial ERD
-
 <img src="docs/smartInvest_ERD.png">
+
+## Component Diagram
+<img src="docs/SmartInvest.png">
+
+## Architectural Diagram
+<img src="docs/SmartInvest_Architecture.png">
 
 ## MVP Definition
 * User can create account
