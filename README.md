@@ -2,13 +2,13 @@
 ## Contact Info 
 * Email Address: shirish.stha@gmail.com
 * Slack Handle: Shirish Shrestha
-* Github (Repo or Your Account): https://github.com/sls-coderepo
+* Github (Repo or Your Account): https://github.com/sls-coderepo/Smart-Invest
 
 ## Name of Project: Smart Invest
 
-Smart Invest is a stock investment simulator for beginner investors to learn stock selection based on their prediction of the stock market.
+Smart Invest is a stock investment simulator for beginner investors to learn stock selection based on their prediction of the stock market. It allows user to add alternate routes on the investment to tract their predictions. It also allows user to add watch list to track current stock prices for selected symbols.
 
-Smart Invest Application is going to be written in React, using ReactStrap, BootStrap, Canvas
+Smart Invest Application is going to be written in React, using ReactStrap, BootStrap, canvasjs.
 
 ## Stock API Provider:  https://www.alphavantage.co
 ## UI/UX Prototype: https://xd.adobe.com/view/3b4924e2-28cf-4889-6f02-df2c475a7931-4d78/
@@ -36,6 +36,7 @@ Smart Invest Application is going to be written in React, using ReactStrap, Boot
 * As a stock investor, in order to invest in stock, I want to purchase the stock 
 * As a stock investor, in order to keep track, I want to add selected stocks into watch list.
 * As a stock investor, in order to check my prediction, I want to add alternate route to the invested stocks
+
 
 
 
