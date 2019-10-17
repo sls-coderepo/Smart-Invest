@@ -11,6 +11,7 @@ Smart Invest is a stock investment simulator for beginner investors to learn sto
 Smart Invest Application is going to be written in React, using ReactStrap, BootStrap, Canvas
 
 ## Stock API Provider:  https://www.alphavantage.co
+## UI/UX Prototype: https://xd.adobe.com/view/3b4924e2-28cf-4889-6f02-df2c475a7931-4d78/
 
 ## Initial ERD
 <img src="docs/smartInvest_ERD.png">
