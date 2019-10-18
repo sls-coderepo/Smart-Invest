@@ -2,6 +2,23 @@ import React, {Component} from 'react'
 import {Form, FormGroup, Label, Input} from 'react-router-dom'
 
 class SignUp extends Component {
+    state = {
+        firstName: "",
+        lastName: "",
+        emailAddress: "",
+        userName: "",
+        password: "",
+        confirmPassword: ""
+    }
+    
+    handleFieldChange = evt => {
+        const stateToChange = {}
+        stateToChange[evt.target.id] = evt.target.value
+        this.setState(stateToChange)
+    }
+
+    
+
     render() {
         return(
             <Form>
