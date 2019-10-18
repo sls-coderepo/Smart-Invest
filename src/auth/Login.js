@@ -34,8 +34,8 @@ class Login extends Component {
         const closeBtn = <button className="close" onClick={this.toggle}>&times;</button>;
         return(
             <Form>
-                <Modal>
-                    <ModalHeader toggle={this.toggle}>Login</ModalHeader>
+                <Modal  isOpen={this.props.isModalOpen} fade={false} toggle={this.props.toggle} className={this.props.className}>
+                    <ModalHeader toggle={this.props.toggle}>Login</ModalHeader>
                     <ModalBody>
                 <FormGroup>
                     <Label htmlFor="userName">User Name</Label>
