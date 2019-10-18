@@ -1,0 +1,37 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "firstName": "",
+            "lastName": "",
+            "emailAddress": "",
+            "userName": "",
+            "password": "",
+            "confirmPassword": ""
+
+        }
+    ],
+    "investments": [
+        {
+            "id": 1,
+            "userId": 1,
+            "parentId": 1,
+            "symbol": "",
+            "stockName": "",
+            "purchasePrice": "",
+            "purchaseQty": "",
+            "totalAmount": "",
+            "purchaseDate": ""
+
+        }
+      
+    ],
+    "watchlists": [
+        {
+            "id": 1,
+            "userId": 1,
+            "symbol": "",
+            "stockName":""
+        }
+    ]
+}
