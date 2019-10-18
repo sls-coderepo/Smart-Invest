@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { Link, withRouter} from "react-router-dom";
+
 import 'bootstrap/dist/css/bootstrap.css';
-import {NavbarToggler, Navbar, NavbarBrand, NavLink, Collapse, Nav, NavItem, UncontrolledDropdown,DropdownToggle, DropdownMenu,DropdownItem} from 'reactstrap'
+import {NavbarToggler, Navbar, NavbarBrand, NavLink, Collapse, Nav, NavItem} from 'reactstrap'
 
 
 class NavBar extends Component {
@@ -40,5 +42,4 @@ class NavBar extends Component {
   }
 }
 
-
-export default NavBar;
+export default withRouter(NavBar);

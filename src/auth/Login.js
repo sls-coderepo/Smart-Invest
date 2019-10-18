@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
-import {Form, FormGroup, Label, Input, Button, Modal, ModalBody, ModalFooter} from 'reactstrap'
+import {Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap'
 import {Link} from 'react-router-dom'
 
 class Login extends Component {
@@ -58,4 +58,4 @@ class Login extends Component {
     } 
 }
 
- export default Login 
+ export default Login  
