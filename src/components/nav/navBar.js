@@ -13,8 +13,11 @@ class NavBar extends Component {
                <li>
                    <Link className="nav-link">Logout</Link>
                 </li>
-               <li>
+                <li>
                    <Link className="nav-link"  to="/login">Login</Link>
+                </li>
+                <li>
+                   <Link className="nav-link"  to="/signUp">SignUp</Link>
                 </li>
           </ul>
         </nav>
