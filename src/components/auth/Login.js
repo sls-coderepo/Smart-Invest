@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
-import ReactDOM from 'react-dom'
 import {Form, FormGroup, Label, Input, Button, Modal, ModalBody, ModalFooter} from 'reactstrap'
-import {Link} from 'react-router-dom'
+
 
 class Login extends Component {
     state = {
