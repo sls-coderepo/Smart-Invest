@@ -1,11 +1,14 @@
 import React, {Component} from 'react'
-import {Form, FormGroup, Label, Input, Button} from 'reactstrap'
+import ReactDOM from 'react-dom'
+import {Form, FormGroup, Label, Input, Button, Modal, ModalBody, ModalFooter} from 'reactstrap'
 import {Link} from 'react-router-dom'
 
 class Login extends Component {
     state = {
         userName: "",
-        password: ""
+        password: "",
+        isModalOpen: false
+        
     }
 
     handleFieldChange = evt => {
@@ -21,10 +24,19 @@ class Login extends Component {
         this.props.history.push('/')
     }
 
-    render() {
+    toggle = () => {
+        this.setState(prevState => ({
+            isModalOpen: !prevState.isModalOpen
+        }))
+    }
+
+     render() {
+        const closeBtn = <button className="close" onClick={this.toggle}>&times;</button>;
         return(
-               
             <Form>
+                <Modal>
+                    <ModalHeader>Login</ModalHeader>
+                    <ModalBody>
                 <FormGroup>
                     <Label htmlFor="userName">User Name</Label>
                     <Input type="text" required onChange={this.handleFieldChange} id="userName"></Input>
@@ -33,12 +45,17 @@ class Login extends Component {
                     <Label htmlFor="password">Password</Label>
                     <Input type="password" required onChange={this.handleFieldChange} id="password"></Input>
                 </FormGroup>
+                </ModalBody>
+                <ModalFooter>
                 <Button>
                          Save
                 </Button>
+               
+                </ModalFooter>
+                </Modal>
             </Form>  
         )
-    }
+    } 
 }
 
-export default Login
+ export default Login 

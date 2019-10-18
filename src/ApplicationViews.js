@@ -9,6 +9,9 @@ class ApplicationViews extends Component {
                 <Route path='/login' render={props => {
                     return <Login {...props}/>
                 }}/>
+                <Route path='/signUp' render={props => {
+                    return <Login {...props}/>
+                }}/>
             </React.Fragment>
         )
     }

@@ -37,7 +37,6 @@ class SmartInvest extends Component {
           <>
           <NavBar user={this.state.user} clear={this.clearUser}/>
           <ApplicationViews user={this.state.user} setUser={this.setUser}/>
-          
           </>
       )
   }
