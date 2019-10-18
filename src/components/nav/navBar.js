@@ -10,8 +10,12 @@ class NavBar extends Component {
         </h1>
         <nav>
           <ul className="container">
-               <li><Link className="nav-link">Logout</Link></li>
-               <li><Link className="nav-link" exact activeClassName="nav-link-active" to="/login">Login</Link></li>
+               <li>
+                   <Link className="nav-link">Logout</Link>
+                </li>
+               <li>
+                   <Link className="nav-link"  to="/login">Login</Link>
+                </li>
           </ul>
         </nav>
       </header>
