@@ -1,7 +1,7 @@
 import {Route} from 'react-router-dom'
 import React, {Component} from 'react'
-import Login from './auth/Login' 
-import SignUp from './auth/SignUp'
+import Login from './components/auth/Login' 
+import SignUp from './components/auth/SignUp'
 
 class ApplicationViews extends Component {
     render () {

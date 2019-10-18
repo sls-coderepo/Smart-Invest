@@ -32,7 +32,7 @@ class NavBar extends Component {
               <NavLink href="/signUp">Signup</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">Logout</NavLink>
+              <NavLink href="/logout">Logout</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
