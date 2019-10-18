@@ -1,6 +1,6 @@
 import {Route, Redirect} from 'react-router-dom'
 import React, {Component} from 'react'
-import Login from './auth/Login'
+import Login from './components/auth/Login'
 
 class ApplicationViews extends Component {
     render () {

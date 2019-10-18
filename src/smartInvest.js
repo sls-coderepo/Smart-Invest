@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import NavBar from './components/nav/navBar'
 import ApplicationViews from './ApplicationViews';
-import Login from './auth/Login'
+import Login from './components/auth/Login'
 
 
 class SmartInvest extends Component {
