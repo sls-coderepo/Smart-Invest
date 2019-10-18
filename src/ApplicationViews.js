@@ -1,6 +1,7 @@
 import {Route, Redirect} from 'react-router-dom'
 import React, {Component} from 'react'
-import Login from './auth/Login'
+import Login from './auth/Login' 
+import SignUp from './auth/SignUp'
 
 class ApplicationViews extends Component {
     render () {
@@ -8,9 +9,9 @@ class ApplicationViews extends Component {
             <React.Fragment>
                 <Route path='/login' render={props => {
                     return <Login {...props}/>
-                }}/>
+                }}/> 
                 <Route path='/signUp' render={props => {
-                    return <Register {...props}/>
+                    return <SignUp {...props}/>
                 }}/>
             </React.Fragment>
         )

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Form, FormGroup, Label, Input} from 'react-router-dom'
+import {Form, FormGroup, Label, Input, Button} from 'reactstrap'
 
 class SignUp extends Component {
     state = {
@@ -17,11 +17,22 @@ class SignUp extends Component {
         this.setState(stateToChange)
     }
 
-    
+    handleSignUp = evt => {
+        evt.preDefault()
+        let inputValue = {
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            emailAddress: this.state.emailAddress,
+            password: this.state.password,
+            confirmPassword: this.state.confirmPassword
+        }
+    }
+
+
 
     render() {
         return(
-            <Form>
+            <Form onSubmit={this.handleSignUp}>
                 <FormGroup>
                     <Label htmlFor="firstName">First Name</Label>
                     <Input type="text" required onChange={this.handleFieldChange} id="firstName"></Input>
@@ -46,7 +57,7 @@ class SignUp extends Component {
                     <Label htmlFor="confirmPassword">Confirm Password</Label>
                     <Input type="password" required onChange={this.handleFieldChange} id="confirmPassword"></Input>
                 </FormGroup>
-                <Button>
+                <Button type="submit">
                          Register
                 </Button>
             </Form> 
