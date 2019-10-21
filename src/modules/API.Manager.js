@@ -10,3 +10,5 @@ const API = {
         }).then(data => data.json())
       },
 }
+
+export default API
