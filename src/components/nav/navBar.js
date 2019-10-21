@@ -20,7 +20,7 @@ class NavBar extends Component {
   render() {
     
     return (
-        <div>
+      <>
       <Navbar color="light" light expand="md">
         <NavbarBrand href="/">SMART INVEST</NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
@@ -30,7 +30,7 @@ class NavBar extends Component {
               <NavLink data-toggle="modal" data-target="#exampleModal">Login</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/signUp">Signup</NavLink>
+              <NavLink onClick={() => {this.toggleSignUp()}}>Signup</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/logout">Logout</NavLink>
@@ -38,7 +38,10 @@ class NavBar extends Component {
           </Nav>
         </Collapse>
       </Navbar>
-    </div>
+      <SignUp isSignupModalOpen={this.state.isSignupModalOpen} 
+              toggleSignUp={this.toggleSignUp}
+                           {...this.props}/>
+      </>
     );
   }
 }
