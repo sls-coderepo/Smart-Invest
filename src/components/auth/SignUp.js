@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap'
+import API from '../../modules/API.Manager'
 
 class SignUp extends Component {
     state = {
@@ -18,7 +19,7 @@ class SignUp extends Component {
     }
 
     handleSignUp = evt => {
-        evt.preDefault()
+        evt.preventDefault()
         let inputValue = {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
@@ -26,6 +27,10 @@ class SignUp extends Component {
             password: this.state.password,
             confirmPassword: this.state.confirmPassword
         }
+        API.post(inputValue, "users").then(() => {
+            this.props.toggleSignUp()
+            this.props.history.push('/')
+        })
     }
 
 

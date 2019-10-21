@@ -1,37 +1,42 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "firstName": "",
-            "lastName": "",
-            "emailAddress": "",
-            "userName": "",
-            "password": "",
-            "confirmPassword": ""
-
-        }
-    ],
-    "investments": [
-        {
-            "id": 1,
-            "userId": 1,
-            "parentId": 1,
-            "symbol": "",
-            "stockName": "",
-            "purchasePrice": "",
-            "purchaseQty": "",
-            "totalAmount": "",
-            "purchaseDate": ""
-
-        }
-      
-    ],
-    "watchlists": [
-        {
-            "id": 1,
-            "userId": 1,
-            "symbol": "",
-            "stockName":""
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "firstName": "",
+      "lastName": "",
+      "emailAddress": "",
+      "userName": "",
+      "password": "",
+      "confirmPassword": ""
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "emailAddress": "",
+      "password": "1234",
+      "confirmPassword": "",
+      "id": 2
+    }
+  ],
+  "investments": [
+    {
+      "id": 1,
+      "userId": 1,
+      "parentId": 1,
+      "symbol": "",
+      "stockName": "",
+      "purchasePrice": "",
+      "purchaseQty": "",
+      "totalAmount": "",
+      "purchaseDate": ""
+    }
+  ],
+  "watchlists": [
+    {
+      "id": 1,
+      "userId": 1,
+      "symbol": "",
+      "stockName": ""
+    }
+  ]
 }
