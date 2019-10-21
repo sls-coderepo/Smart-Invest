@@ -7,8 +7,7 @@ class Login extends Component {
     state = {
         userName: "",
         password: "",
-        isModalOpen: false
-        
+                
     }
 
     handleFieldChange = evt => {
@@ -24,18 +23,18 @@ class Login extends Component {
         this.props.history.push('/')
     }
 
-    toggle = () => {
+    /* toggle = () => {
         this.setState(prevState => ({
             isModalOpen: !prevState.isModalOpen
         }))
-    }
+    } */
 
      render() {
-        const closeBtn = <button className="close" onClick={this.toggle}>&times;</button>;
+        const closeBtn = <button className="close" onClick={this.props.toggleLogin}>&times;</button>;
         return(
             <Form>
-                <Modal  isOpen={this.props.isModalOpen} fade={false} toggle={this.props.toggle} className={this.props.className}>
-                    <ModalHeader toggle={this.props.toggle}>Login</ModalHeader>
+                <Modal  isOpen={this.props.isLoginModalOpen} fade={false} toggle={this.props.isLoginModalOpen} className={this.props.className}>
+                    <ModalHeader toggle={this.props.toggleLogin}>Login</ModalHeader>
                     <ModalBody>
                 <FormGroup>
                     <Label htmlFor="userName">User Name</Label>
