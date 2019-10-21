@@ -1,19 +1,20 @@
 import React, { Component } from "react";
 import { Link, withRouter} from "react-router-dom";
-
+import Login from '../auth/Login'
+import SignUp from '../auth/SignUp'
 import 'bootstrap/dist/css/bootstrap.css';
 import {NavbarToggler, Navbar, NavbarBrand, NavLink, Collapse, Nav, NavItem} from 'reactstrap'
 
 
 class NavBar extends Component {
     state = {
-        isOpen: true
+        isSignupModalOpen: false
     }
 
-    toggle = () => {
-        this.setState = {
-            isOpen: !this.state.isOpen
-        }
+    toggleSignUp = () => {
+      this.setState(prevState => ({
+        isSignupModalOpen: !prevState.isSignupModalOpen
+      }))
     }
 
   render() {

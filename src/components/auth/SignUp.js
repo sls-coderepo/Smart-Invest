@@ -31,10 +31,11 @@ class SignUp extends Component {
 
 
     render() {
+        const closeBtn = <Button className="close" onClick={this.props.toggleSignup}>&times;</Button>
         return(
             <Form>
-                <Modal>
-                    <ModalHeader></ModalHeader>
+                <Modal isOpen={this.props.isSignupModalOpen} fade={false} toggle={this.props.isSignupModalOpen} className={this.props.className}>
+                    <ModalHeader toggle={this.props.toggleSignUp}>Register</ModalHeader>
                     <ModalBody>
                     <FormGroup>
                     <Label htmlFor="firstName">First Name</Label>
@@ -63,7 +64,7 @@ class SignUp extends Component {
                     </ModalBody>
                     <ModalFooter>
                     <Button onClick={this.handleSignUp}>
-                         Register
+                         Save
                 </Button>
                     </ModalFooter>
                 </Modal>
