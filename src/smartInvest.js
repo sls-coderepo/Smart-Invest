@@ -36,7 +36,9 @@ class SmartInvest extends Component {
       return (
           <>
           <NavBar user={this.state.user} clear={this.clearUser}/>
+          <div className="container pt-5">
           <ApplicationViews user={this.state.user} setUser={this.setUser}/>
+          </div>
           </>
       )
   }

@@ -21,7 +21,7 @@ class NavBar extends Component {
     return (
         <div>
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">reactstrap</NavbarBrand>
+        <NavbarBrand href="/">SMART INVEST</NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.isOpen} navbar>
           <Nav className="ml-auto" navbar>
