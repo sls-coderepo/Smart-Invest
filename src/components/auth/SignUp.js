@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Form, FormGroup, Label, Input, Button} from 'reactstrap'
+import {Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap'
 
 class SignUp extends Component {
     state = {

@@ -1,26 +1,27 @@
-/* import React, {Component} from 'react'
+import React, {Component} from 'react'
 import {Row, Col, Card, CardBody} from 'reactstrap'
 
 class Dashboard extends Component {
     render(){
+        return (
         <>
         <Row>
-            <Col>
-            <Card md="4" sm="4">
+            <Col md="4" sm="4">
+            <Card>
                 <CardBody>
 
                 </CardBody>
             </Card>
             </Col>
-            <Col>
-            <Card md="4" sm="4">
+            <Col md="4" sm="4">
+            <Card>
                 <CardBody>
 
                 </CardBody>
             </Card>
             </Col>
-            <Col>
-            <Card md="4" sm="4">
+            <Col md="4" sm="4">
+            <Card>
                 <CardBody>
 
                 </CardBody>
@@ -28,6 +29,8 @@ class Dashboard extends Component {
             </Col>
         </Row>
         </>
-
+        )
     }
-} */
+} 
+
+export default Dashboard
