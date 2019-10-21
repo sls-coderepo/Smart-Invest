@@ -8,39 +8,51 @@ import {NavbarToggler, Navbar, NavbarBrand, NavLink, Collapse, Nav, NavItem} fro
 
 class NavBar extends Component {
     state = {
-        isSignupModalOpen: false
+        isLoginModalOpen : false,
+        isSignupModalOpen : false
+    }
+
+    toggleLogin = () => {
+        this.setState(prevState => ({
+        isLoginModalOpen : !prevState.isLoginModalOpen
+      }))
     }
 
     toggleSignUp = () => {
-      this.setState(prevState => ({
-        isSignupModalOpen: !prevState.isSignupModalOpen
+        this.setState(prevState => ({
+        isSignupModalOpen : !prevState.isSignupModalOpen
       }))
     }
+
 
   render() {
     
     return (
       <>
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">SMART INVEST</NavbarBrand>
-        <NavbarToggler onClick={this.toggle} />
-        <Collapse isOpen={this.isOpen} navbar>
+          <NavbarBrand href="/">SMART INVEST</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.isOpen} navbar>
           <Nav className="ml-auto" navbar>
-            <NavItem>
-              <NavLink data-toggle="modal" data-target="#exampleModal">Login</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink onClick={() => {this.toggleSignUp()}}>Signup</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/logout">Logout</NavLink>
+              <NavItem>
+                  <NavLink onClick={() => {this.toggleLogin()}}>Login</NavLink>
+              </NavItem>
+              <NavItem>
+                  <NavLink onClick={() => {this.toggleSignUp()}}>Signup</NavLink>
+              </NavItem>
+              <NavItem>
+                  <NavLink href="/logout">Logout</NavLink>
             </NavItem>
           </Nav>
-        </Collapse>
+          </Collapse>
       </Navbar>
-      <SignUp isSignupModalOpen={this.state.isSignupModalOpen} 
-              toggleSignUp={this.toggleSignUp}
+      <Login isLoginModalOpen = {this.state.isLoginModalOpen}
+             toggleLogin = {this.toggleLogin}
                            {...this.props}/>
+             
+      <SignUp isSignupModalOpen = {this.state.isSignupModalOpen} 
+              toggleSignUp = {this.toggleSignUp}
+                             {...this.props}/>
       </>
     );
   }
