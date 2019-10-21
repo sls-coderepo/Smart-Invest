@@ -32,8 +32,11 @@ class SignUp extends Component {
 
     render() {
         return(
-            <Form onSubmit={this.handleSignUp}>
-                <FormGroup>
+            <Form>
+                <Modal>
+                    <ModalHeader></ModalHeader>
+                    <ModalBody>
+                    <FormGroup>
                     <Label htmlFor="firstName">First Name</Label>
                     <Input type="text" required onChange={this.handleFieldChange} id="firstName"></Input>
                 </FormGroup>
@@ -57,9 +60,14 @@ class SignUp extends Component {
                     <Label htmlFor="confirmPassword">Confirm Password</Label>
                     <Input type="password" required onChange={this.handleFieldChange} id="confirmPassword"></Input>
                 </FormGroup>
-                <Button type="submit">
+                    </ModalBody>
+                    <ModalFooter>
+                    <Button onClick={this.handleSignUp}>
                          Register
                 </Button>
+                    </ModalFooter>
+                </Modal>
+              
             </Form> 
         )
     }

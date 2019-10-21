@@ -7,6 +7,9 @@ class ApplicationViews extends Component {
     render () {
         return (
             <React.Fragment>
+               {/*  <Route exact path="/" render={props => {
+                    return <Dashboard {...props}/>
+                }}/> */}
                 <Route path='/login' render={props => {
                     return <Login {...props}/>
                 }}/> 
