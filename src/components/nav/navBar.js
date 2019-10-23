@@ -41,6 +41,9 @@ class NavBar extends Component {
                   <NavLink onClick={() => {this.toggleSignUp()}}>Signup</NavLink>
               </NavItem>
               <NavItem>
+                  <NavLink href="/portfolio">Portfolio</NavLink>
+              </NavItem>
+              <NavItem>
                   <NavLink href="/logout">Logout</NavLink>
             </NavItem>
           </Nav>

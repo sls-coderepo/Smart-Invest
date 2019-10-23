@@ -3,6 +3,8 @@ import React, {Component} from 'react'
 import Login from './components/auth/Login' 
 import SignUp from './components/auth/SignUp'
 import Dashboard from './components/dashboard/Dashboard'
+import Portfolio from './components/portfolio/Portfolio'
+import PortfolioDetail from './components/portfolio/PortfolioDetail'
 
 class ApplicationViews extends Component {
     render () {
@@ -17,6 +19,12 @@ class ApplicationViews extends Component {
                 <Route path='/signUp' render={props => {
                     return <SignUp {...props}/>
                 }}/>
+                <Route exact path='/portfolio' render={props => {
+                    return <Portfolio {...props}/>
+                }}/> 
+                <Route path='/portfolio/:symbol' render={props => {
+                    return <PortfolioDetail symbol={props.match.params.symbol} {...props}/>
+                }}/> 
             </React.Fragment>
         )
     }
