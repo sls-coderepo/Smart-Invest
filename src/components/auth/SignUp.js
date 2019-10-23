@@ -39,7 +39,7 @@ class SignUp extends Component {
         const closeBtn = <Button className="close" onClick={this.props.toggleSignup}>&times;</Button>
         return(
             <Form>
-                <Modal isOpen={this.props.isSignupModalOpen} fade={false} toggle={this.props.isSignupModalOpen} className={this.props.className}>
+                <Modal isOpen={this.props.isSignupModalOpen} fade={false} toggle={this.props.toggleSignup} className={this.props.className}>
                     <ModalHeader toggle={this.props.toggleSignUp}>Register</ModalHeader>
                     <ModalBody>
                     <FormGroup>
