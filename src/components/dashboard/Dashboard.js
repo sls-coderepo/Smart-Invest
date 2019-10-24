@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
-import {Alert, Row, Col, Card, CardBody, Input,InputGroup, InputGroupAddon, Button} from 'reactstrap'
-import APIStock from '../../modules/API.AlphaVintageManager';
-import APIIex from '../../modules/API.IEXManager'
+import { Row, Col, Card, CardBody} from 'reactstrap'
+import WatchList from '../portfolio/WatchList'
 
 class Dashboard extends Component {
     state = {
@@ -36,6 +35,8 @@ class Dashboard extends Component {
             </Card>
             </Col>
         </Row>
+        <WatchList/>
+       
         </>
         )
     }

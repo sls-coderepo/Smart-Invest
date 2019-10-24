@@ -1,21 +1,12 @@
 {
   "users": [
     {
-      "id": 1,
-      "firstName": "",
-      "lastName": "",
-      "emailAddress": "",
-      "userName": "",
-      "password": "",
-      "confirmPassword": ""
-    },
-    {
-      "firstName": "",
-      "lastName": "",
-      "emailAddress": "",
-      "password": "1234",
-      "confirmPassword": "",
-      "id": 2
+      "firstName": "mk",
+      "lastName": "mk",
+      "emailAddress": "mk@mk.com",
+      "userName": "mk",
+      "password": "mk",
+      "id": 9
     }
   ],
   "investments": [
@@ -37,6 +28,48 @@
       "userId": 1,
       "symbol": "",
       "stockName": ""
+    },
+    {
+      "symbol": "AAPL",
+      "stockName": "Apple, Inc.",
+      "id": 2
+    },
+    {
+      "symbol": "BABA",
+      "stockName": "Alibaba Group Holding Ltd.",
+      "id": 3
+    },
+    {
+      "symbol": "AAPL",
+      "stockName": "Apple, Inc.",
+      "id": 4
+    },
+    {
+      "symbol": "AAPL",
+      "stockName": "Apple, Inc.",
+      "id": 5
+    },
+    {
+      "symbol": "MSFT",
+      "stockName": "Microsoft Corp.",
+      "id": 6
+    },
+    {
+      "symbol": "MSFT",
+      "stockName": "Microsoft Corp.",
+      "id": 7
+    },
+    {
+      "userId": "9",
+      "symbol": "BABA",
+      "stockName": "Alibaba Group Holding Ltd.",
+      "id": 8
+    },
+    {
+      "userId": 9,
+      "symbol": "COST",
+      "stockName": "Costco Wholesale Corp.",
+      "id": 9
     }
   ]
 }

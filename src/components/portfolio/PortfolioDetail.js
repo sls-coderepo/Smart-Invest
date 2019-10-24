@@ -1,18 +1,30 @@
 import React, {Component} from 'react'
-import {Row, Col, Card, CardBody, CardHeader, Button} from 'reactstrap'
-import APIStock from '../../modules/API.AlphaVintageManager';
+import {Row, Col, Button} from 'reactstrap'
 import APIIex from '../../modules/API.IEXManager';
+import API from '../../modules/API.Manager'
 
 class PortfolioDetail extends Component {
     
     state = {
-        stockDetails: {}
+        stockDetails: {},
+       
+    }
+    
+    
+    handleClick = () => {
+            let stockWatch = {
+            userId: parseInt(localStorage.getItem("loggedInUserId")),
+            symbol : this.state.stockDetails.symbol,
+            stockName : this.state.stockDetails.companyName
+
+        }
+       API.post(stockWatch, "watchlists").then(() => {
+                this.props.history.push('/')
+        })
     }
 
     componentDidMount() {
-        
         console.log(this.props.symbol)
-
         APIIex.get(this.props.symbol).then(data => {
             console.log(data);
             this.setState({
@@ -38,7 +50,7 @@ class PortfolioDetail extends Component {
                 <Col md="2"><h3>{this.state.stockDetails.latestPrice}</h3></Col>
             </Row>
             <div className="float-right p-2">
-                <Button className="ml-2">Add to Watchlist</Button> 
+                <Button className="ml-2" onClick={() => this.handleClick()}>Add to Watchlist</Button> 
                 <Button className="ml-2">Buy</Button> 
             </div>
             </>
