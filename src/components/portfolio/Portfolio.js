@@ -16,10 +16,14 @@ class Portfolio extends Component {
         this.setState(stateToChange)
     }
 
-    searchStock = () => {
-        
-        this.props.history.push(`/PortfolioSearch?keyword=${this.state.keyword}`)
-    }
+    searchStock = (e) => {
+             e.preventDefault();
+             APIStock.search(this.state.keyword).then((data) => {
+                            this.setState({searchResult: data})
+                            })
+        } 
+       // this.props.history.push(`/PortfolioSearch?keyword=${this.state.keyword}`)
+    //}
      
     /* searchStock = () => {
         return (<Redirect to={{
