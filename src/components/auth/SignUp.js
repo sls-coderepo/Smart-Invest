@@ -49,11 +49,7 @@ class SignUp extends Component {
             })
         }
 
-
-        
     }
-
-
 
     render() {
         const closeBtn = <Button className="close" onClick={this.props.toggleSignup}>&times;</Button>

@@ -2,12 +2,20 @@ import React, {Component} from 'react'
 import {Row, Col, Button} from 'reactstrap'
 import APIIex from '../../modules/API.IEXManager';
 import API from '../../modules/API.Manager'
+import StockPurchase from './StockPurchase';
 
 class PortfolioDetail extends Component {
     
     state = {
         stockDetails: {},
+        isPurchaseModalOpen : false,
        
+    }
+
+    togglePurchaseModal = () => {
+        this.setState(prevState => ({
+            isPurchaseModalOpen : !prevState.isPurchaseModalOpen
+      }))
     }
     
     
@@ -51,8 +59,12 @@ class PortfolioDetail extends Component {
             </Row>
             <div className="float-right p-2">
                 <Button className="ml-2" onClick={() => this.handleClick()}>Add to Watchlist</Button> 
-                <Button className="ml-2">Buy</Button> 
+                <Button className="ml-2" onClick={() => {this.togglePurchaseModal()}}>Buy</Button> 
             </div>
+            <StockPurchase isPurchaseModalOpen = {this.state.isPurchaseModalOpen}
+                           togglePurchaseModal = {this.togglePurchaseModal}
+                           setUser = {this.setUser}
+                           {...this.props}/>
             </>
         )
     }
