@@ -18,8 +18,7 @@ class WatchList extends Component {
     }
 
     componentDidMount(){
-        
-        this.getData()
+         this.getData()
     }
 
     render(){
