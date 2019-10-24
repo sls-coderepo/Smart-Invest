@@ -1,44 +1,38 @@
 import React, {Component} from 'react'
 import NavBar from './components/nav/navBar'
 import ApplicationViews from './ApplicationViews';
+import APIManager from './modules/API.Manager'
 import Login from './components/auth/Login'
 
 
 class SmartInvest extends Component {
-    state = {
-        user: false
-    }
-     isAuthenticated = () => localStorage.getItem("credentials") !== null
-     
-     setUser = (authObj) => {
-         localStorage.setItem(
-             "credentials",
-             JSON.stringify(authObj)
-         )
-         this.state({
-             user: this.isAuthenticated()
-         })
-     }
 
-     clearUser = () => {
-         localStorage.clear()
-         this.setState({
-             user: this.isAuthenticated()
-         })
-     }
+    
+    /* 
+    checkLoginData = () => {
+        APIManager.getRecord(this.state.query)
+             .then(userList => {
+                 if (userList.length) {
+                 localStorage.setItem('credentials', JSON.stringify(userList));
+                 this.setState({
+            user: this.isAuthenticated()
+          });
+        } else {
+          alert("Input data is not valid. Try again!");
+        }
+      })
+    } */
 
-     componentDidMount(){
-         this.setState({
-             user: this.isAuthenticated
-         })
-     }
+
+
+    
   render() {
       return (
           <>
-          <NavBar user={this.state.user} clear={this.clearUser}/>
-          <div className="container pt-5">
-          <ApplicationViews user={this.state.user} setUser={this.setUser}/>
-          </div>
+            <NavBar />
+            <div className="container pt-5">
+              <ApplicationViews />
+            </div>
           </>
       )
   }

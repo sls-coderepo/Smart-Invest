@@ -1,10 +1,9 @@
 import React, {Component} from 'react'
-import { Redirect } from 'react-router-dom';
 import {Alert,Input,InputGroup, InputGroupAddon, Button} from 'reactstrap'
 import APIStock from '../../modules/API.AlphaVintageManager';
 import PortfolioSearchResult from './PortfolioSearchResult';
 
-class Portfolio extends Component {
+class PortfolioSearch extends Component {
     state = {
        keyword: "",
        searchResult: [],
@@ -15,19 +14,13 @@ class Portfolio extends Component {
         stateToChange[e.target.id] = e.target.value;
         this.setState(stateToChange)
     }
-
-    searchStock = () => {
-        
-        this.props.history.push(`/PortfolioSearch?keyword=${this.state.keyword}`)
-    }
      
-    /* searchStock = () => {
-        return (<Redirect to={{
-            pathname:"/PortfolioSearch",
-            state: this.state.keyword
-        }}/>)
-        
-     } */
+    searchStock = e => {
+        e.preventDefault();
+         APIStock.search(this.state.keyword).then((data) => {
+                        this.setState({searchResult: data})
+                        })
+    }
 
     hasSymbols = ()=>
     {
@@ -37,6 +30,8 @@ class Portfolio extends Component {
         }
         return false;
     }
+
+  
       
     render(){
         return (
@@ -58,4 +53,4 @@ class Portfolio extends Component {
     }
 } 
 
-export default Portfolio
+export default PortfolioSearch

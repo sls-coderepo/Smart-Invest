@@ -9,7 +9,8 @@ class SignUp extends Component {
         emailAddress: "",
         userName: "",
         password: "",
-        confirmPassword: ""
+        confirmPassword: "",
+       
     }
     
     handleFieldChange = evt => {
@@ -20,17 +21,36 @@ class SignUp extends Component {
 
     handleSignUp = evt => {
         evt.preventDefault()
-        let inputValue = {
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
-            emailAddress: this.state.emailAddress,
-            password: this.state.password,
-            confirmPassword: this.state.confirmPassword
+
+        if(this.state.userName === '')
+        {
+            alert('Please enter a valid user name')
         }
-        API.post(inputValue, "users").then(() => {
-            this.props.toggleSignUp()
-            this.props.history.push('/')
-        })
+        else if(this.state.password === '')
+        {
+            alert('Please enter a valid password')
+        }
+        else if(this.state.password !== this.state.confirmPassword)
+        {
+            alert('Password and Confirm Password did not match')
+        }
+        else{
+            let newUser = {
+                firstName: this.state.firstName,
+                lastName: this.state.lastName,
+                emailAddress: this.state.emailAddress,
+                userName: this.state.userName,
+                password: this.state.password,
+            }
+            API.post(newUser, "users").then((response) => {
+                this.props.toggleSignUp()
+                this.props.setUser(response.id);
+                this.props.history.push('/')
+            })
+        }
+
+
+        
     }
 
 

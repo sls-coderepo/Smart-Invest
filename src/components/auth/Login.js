@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
-import ReactDOM from 'react-dom'
 import {Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap'
-import {Link} from 'react-router-dom'
-
+import API from '../../modules/API.Manager';
 class Login extends Component {
     state = {
         userName: "",
@@ -18,21 +16,38 @@ class Login extends Component {
 
     handleLogin = evt => {
         evt.preventDefault()
-        let credentials = {userName: this.state.userName, password: this.state.password}
-        this.props.setUser(credentials)
-        this.props.history.push('/')
+        if(this.state.userName === '')
+        {
+            alert('Please enter a valid user name')
+        }
+        else if(this.state.password === '')
+        {
+            alert('Please enter a valid password')
+        }
+        else
+        {
+            let credentials = {userName: this.state.userName, password: this.state.password}
+            API.getLoginUser(credentials).then((response) => {
+                console.log(response)
+                if(response.length == 0)
+                {
+                    alert('Invalid login.')
+                }
+                else{
+                    this.props.toggleLogin()
+                    this.props.setUser(response[0].id)
+                    this.props.history.push('/')
+                }
+            })
+            
+        }
+        
     }
-
-    /* toggle = () => {
-        this.setState(prevState => ({
-            isModalOpen: !prevState.isModalOpen
-        }))
-    } */
 
      render() {
         const closeBtn = <button className="close" onClick={this.props.toggleLogin}>&times;</button>;
         return(
-            <Form>
+            <Form >
                 <Modal  isOpen={this.props.isLoginModalOpen} fade={false} toggle={this.props.toggleLogin} className={this.props.className}>
                     <ModalHeader toggle={this.props.toggleLogin}>Login</ModalHeader>
                     <ModalBody>
@@ -46,8 +61,8 @@ class Login extends Component {
                 </FormGroup>
                 </ModalBody>
                 <ModalFooter>
-                <Button>
-                         Save
+                <Button onClick={this.handleLogin}>
+                         Login
                 </Button>
                
                 </ModalFooter>
