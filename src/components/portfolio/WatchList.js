@@ -24,7 +24,9 @@ class WatchList extends Component {
     render(){
         return(
             <>
+            <h1>Watch List</h1>
             <Table>
+               
                 <thead>
                 <tr>
                     <th>Symbol</th>
@@ -37,10 +39,17 @@ class WatchList extends Component {
                        return (<tr>
                            <td>{list.symbol}</td>
                            <td>{list.stockName}</td>
-                           <td></td>
+                           <td>{list.latestPrice}</td>
+                           <td>
+                               <button>Edit</button>
+                               <button>Delete</button>
+                           </td>
+                          
+                         
                        </tr>)
                    })}
                 </tbody>
+                
             </Table>
             </>
             

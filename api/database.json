@@ -7,6 +7,14 @@
       "userName": "mk",
       "password": "mk",
       "id": 9
+    },
+    {
+      "firstName": "ss",
+      "lastName": "ss",
+      "emailAddress": "ss@ss.com",
+      "userName": "ss",
+      "password": "ss",
+      "id": 10
     }
   ],
   "investments": [
@@ -20,6 +28,54 @@
       "purchaseQty": "",
       "totalAmount": "",
       "purchaseDate": ""
+    },
+    {
+      "userId": 9,
+      "symbol": "SSYS",
+      "stockName": "Stratasys Ltd.",
+      "purchasePrice": 19.435,
+      "purchaseQty": "2",
+      "totalPrice": 38.87,
+      "id": 3
+    },
+    {
+      "userId": 9,
+      "symbol": "KSU",
+      "stockName": "Kansas City Southern",
+      "purchasePrice": 144.765,
+      "purchaseQty": "2",
+      "totalPrice": 289.53,
+      "id": 4
+    },
+    {
+      "userId": 9,
+      "symbol": "SSW",
+      "stockName": "Seaspan Corp.",
+      "purchasePrice": 11.345,
+      "purchaseQty": "3",
+      "totalPrice": 34.035000000000004,
+      "purchaseDate": "",
+      "id": 5
+    },
+    {
+      "userId": 9,
+      "symbol": "SSO",
+      "stockName": "ProShares Ultra S&P500",
+      "purchasePrice": 131.03,
+      "purchaseQty": "4",
+      "totalPrice": 524.12,
+      "purchaseDate": "",
+      "id": 6
+    },
+    {
+      "userId": 9,
+      "symbol": "SSI",
+      "stockName": "Stage Stores, Inc.",
+      "purchasePrice": 2.34,
+      "purchaseQty": "4",
+      "totalPrice": 9.36,
+      "purchaseDate": 1571943536526,
+      "id": 7
     }
   ],
   "watchlists": [
@@ -28,36 +84,6 @@
       "userId": 1,
       "symbol": "",
       "stockName": ""
-    },
-    {
-      "symbol": "AAPL",
-      "stockName": "Apple, Inc.",
-      "id": 2
-    },
-    {
-      "symbol": "BABA",
-      "stockName": "Alibaba Group Holding Ltd.",
-      "id": 3
-    },
-    {
-      "symbol": "AAPL",
-      "stockName": "Apple, Inc.",
-      "id": 4
-    },
-    {
-      "symbol": "AAPL",
-      "stockName": "Apple, Inc.",
-      "id": 5
-    },
-    {
-      "symbol": "MSFT",
-      "stockName": "Microsoft Corp.",
-      "id": 6
-    },
-    {
-      "symbol": "MSFT",
-      "stockName": "Microsoft Corp.",
-      "id": 7
     },
     {
       "userId": "9",
@@ -70,6 +96,12 @@
       "symbol": "COST",
       "stockName": "Costco Wholesale Corp.",
       "id": 9
+    },
+    {
+      "userId": 9,
+      "symbol": "MSFT",
+      "stockName": "Microsoft Corp.",
+      "id": 10
     }
   ]
 }

@@ -35,7 +35,7 @@ class Dashboard extends Component {
             </Card>
             </Col>
         </Row>
-        <WatchList/>
+        <WatchList />
        
         </>
         )
