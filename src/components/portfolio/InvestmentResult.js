@@ -27,7 +27,7 @@ class InvestmentResult extends Component {
     
     render(){
         return (
-            <Table>
+            <Table striped>
                 <thead>
                 <tr>
                     <th>Symbol</th>

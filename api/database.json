@@ -76,6 +76,16 @@
       "totalPrice": 9.36,
       "purchaseDate": 1571943536526,
       "id": 7
+    },
+    {
+      "userId": 10,
+      "symbol": "AAPL",
+      "stockName": "Apple, Inc.",
+      "purchasePrice": 243.58,
+      "purchaseQty": "5",
+      "totalPrice": 1217.9,
+      "purchaseDate": 1571971558867,
+      "id": 8
     }
   ],
   "watchlists": [

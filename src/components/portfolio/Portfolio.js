@@ -10,7 +10,7 @@ class Portfolio extends Component {
        keyword: "",
        searchResult: [],
       }
-
+     
       handleFieldChange = e => {
         const stateToChange = {}
         stateToChange[e.target.id] = e.target.value;
@@ -48,17 +48,22 @@ class Portfolio extends Component {
         <>
         <Alert color="secondary">
             <InputGroup>
-            <Input type="text" className="searchBox" id="keyword" onChange={this.handleFieldChange}></Input>
+            <Input type="text" className="searchBox" id="keyword"  onChange={this.handleFieldChange} 
+                                                                    onKeyPress={(event) => {
+                                                                        if (event.key === "Enter") {
+                                                                            this.searchStock(event)
+                                                                            }
+                                                                        }}></Input>
             <InputGroupAddon addonType="append"><Button onClick={this.searchStock}>Search</Button></InputGroupAddon>
         </InputGroup>
         </Alert>
         
         {this.hasSymbols() ? 
             <PortfolioSearchResult searchResult = {this.state.searchResult} {...this.props} />
-            :null
+            :<InvestmentResult 
+            {...this.props}/>
         }
-        <InvestmentResult 
-        {...this.props}/>
+        
         </>
         
         )

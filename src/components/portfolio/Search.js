@@ -17,9 +17,14 @@ class PortfolioSearch extends Component {
      
     searchStock = e => {
         e.preventDefault();
-         APIStock.search(this.state.keyword).then((data) => {
-                        this.setState({searchResult: data})
-                        })
+        this.getStockList();
+    }
+
+    getStockList = () =>
+    {
+        APIStock.search(this.state.keyword).then((data) => {
+            this.setState({searchResult: data})
+            })
     }
 
     hasSymbols = ()=>
@@ -31,14 +36,23 @@ class PortfolioSearch extends Component {
         return false;
     }
 
-  
+    componentWillReceiveProps()
+    {
+        const search = this.props.location.search; 
+        const params = new URLSearchParams(search);
+        const keywordParam = params.get('keyword'); 
+        this.setState({
+            keyword : keywordParam
+        })
+        this.getStockList();
+    }
       
     render(){
         return (
         <>
         <Alert color="secondary">
             <InputGroup>
-            <Input type="text" className="searchBox" id="keyword" onChange={this.handleFieldChange}></Input>
+            <Input type="text" className="searchBox" id="keyword" onChange={this.handleFieldChange} value={this.state.keyword}></Input>
             <InputGroupAddon addonType="append"><Button onClick={this.searchStock}>Search</Button></InputGroupAddon>
         </InputGroup>
         </Alert>
