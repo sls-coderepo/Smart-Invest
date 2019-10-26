@@ -10,20 +10,23 @@ class NavBar extends Component {
     state = {
         isLoggedIn: localStorage.getItem("loggedInUserId") !== null,
         loggedInUserId: '',
+        loggedInUserName: '',
         isLoginModalOpen : false,
         isSignupModalOpen : false
     }
 
     isAuthenticated = () => localStorage.getItem("loggedInUserId") !== null
 
-    setUser = userId => {
+    setUser = (userId, userName) => {
       localStorage.setItem('loggedInUserId', userId);
-      this.setState({ loggedInUserId: userId, isLoggedIn: true });
+      localStorage.setItem('loggedInUserName', userName);
+      this.setState({ loggedInUserId: userId, loggedInUserName: userName, isLoggedIn: true });
     }
 
     clearUser = () =>
     {
       localStorage.removeItem('loggedInUserId');
+      localStorage.removeItem('loggedInUserName');
       this.setState({
         loggedInUserId: '', 
         isLoggedIn: false 
@@ -59,6 +62,7 @@ class NavBar extends Component {
             { this.state.isLoggedIn ?
             (
               <>
+              <NavItem><NavLink>Welcome {this.state.loggedInUserName}!</NavLink></NavItem> 
               <NavItem>
                 <NavLink href="/portfolio">Portfolio</NavLink>
               </NavItem>

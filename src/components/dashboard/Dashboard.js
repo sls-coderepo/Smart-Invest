@@ -12,7 +12,7 @@ class Dashboard extends Component {
         return (
         <>
                
-        <Row>
+        {/* <Row>
             <Col md="4" sm="4">
             <Card>
                 <CardBody>
@@ -34,7 +34,7 @@ class Dashboard extends Component {
                 </CardBody>
             </Card>
             </Col>
-        </Row>
+        </Row> */}
         <WatchList />
        
         </>

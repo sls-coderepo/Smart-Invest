@@ -44,7 +44,7 @@ class SignUp extends Component {
             }
             API.post(newUser, "users").then((response) => {
                 this.props.toggleSignUp()
-                this.props.setUser(response.id);
+                this.props.setUser(response.id, response.firstName);
                 this.props.history.push('/')
             })
         }
