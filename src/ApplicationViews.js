@@ -6,6 +6,7 @@ import Dashboard from './components/dashboard/Dashboard'
 import Portfolio from './components/portfolio/Portfolio'
 import PortfolioSearch from './components/portfolio/Search'
 import PortfolioDetail from './components/portfolio/PortfolioDetail'
+import Profile from './components/auth/Profile';
 
 class ApplicationViews extends Component {
     render () {
@@ -13,6 +14,9 @@ class ApplicationViews extends Component {
             <React.Fragment>
                <Route exact path="/" render={props => {
                     return <Dashboard {...props}/>
+                }}/> 
+                <Route exact path="/profile" render={props => {
+                    return <Profile {...props}/>
                 }}/> 
                 <Route path='/login' render={props => {
                     return <Login  {...props}/>

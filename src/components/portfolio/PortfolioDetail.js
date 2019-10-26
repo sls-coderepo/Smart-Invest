@@ -16,8 +16,9 @@ class PortfolioDetail extends Component {
             news: [],
             quote: {},
         },
-        
+        loggedInUserId: parseInt(localStorage.getItem("loggedInUserId")),
         isPurchaseModalOpen : false,
+        investment:{}
        
     }
 
@@ -28,7 +29,7 @@ class PortfolioDetail extends Component {
     }
     
     
-    handleClick = () => {
+    handleAddToWatchListClick = () => {
             let stockWatch = {
             userId: parseInt(localStorage.getItem("loggedInUserId")),
             symbol : this.state.stockDetails.quote.symbol,
@@ -40,19 +41,30 @@ class PortfolioDetail extends Component {
         })
     }
 
-    componentDidMount() {
-        console.log("componentDidMount")
+    handleSellStockClick () {
+
+    }
+
+    handleAddAlternateRouteClick () {
+        
+    }
+    
+    componentDidMount  ()  {
         APIIex.getDetailBatch(this.props.symbol).then(data => {
             this.setState({
                 stockDetails: data
             })
+         API.getInvestmentBySymbol(this.props.symbol, this.state.loggedInUserId).then(data => {
+            this.setState({
+                investment : data
+            })
+        })
             //console.log(this.state.stockDetails.quote.companyName)
         });
 		
     }
     
     render(){
-        console.log("render")
         return (
             <>
             <Row>
@@ -62,7 +74,7 @@ class PortfolioDetail extends Component {
                 </Col>
                 <Col md="1"><h4>{this.state.stockDetails.quote.latestPrice}</h4></Col>
                 <Col md="2">
-                    ^ <table>
+                    <table>
                         <tr><td>{this.state.stockDetails.quote.change}</td></tr>
                         <tr><td>{this.state.stockDetails.quote.changePercent}%</td></tr>
                     </table>
@@ -123,8 +135,9 @@ class PortfolioDetail extends Component {
                             return (<li class="media my-2 py-2 border-bottom">
                             <img src={news.image} class="mr-3"  width="80px" />
                             <div class="media-body">
+                                <small>
                             <a class="mt-0 mb-1" href={news.url} target="_blank">{news.headline}</a>
-                            
+                            </small>
                             </div>
                         </li>)
                         })}
@@ -164,8 +177,22 @@ class PortfolioDetail extends Component {
             <Row className="mt-4">
                 <Col>
                     <div className="float-right p-2">
-                        <Button className="ml-2" onClick={() => this.handleClick()}>Add to Watchlist</Button> 
-                        <Button className="ml-2" onClick={() => {this.togglePurchaseModal()}}>Buy</Button> 
+                        {
+                            (this.state.investment.length>0)?
+                            (   <>
+                                <Button className="ml-2" onClick={() => this.handleSellStockClick()}>Sell Stock</Button> 
+                                <Button className="ml-2" onClick={() => this.handleAddAlternateRouteClick()}>Add Alternate Route</Button> 
+                                </>
+                            )
+                            :
+                            (
+                                <>
+                                <Button className="ml-2" onClick={() => this.handleAddToWatchListClick()}>Add to Watchlist</Button> 
+                                <Button className="ml-2" onClick={() => {this.togglePurchaseModal()}}>Buy</Button> 
+                                </>
+                            )
+                        }
+                        
                     </div>
                 </Col>
             </Row>
