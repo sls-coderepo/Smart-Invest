@@ -8,6 +8,10 @@ const API = {
         return fetch(`${remoteURL}/${database}/${id}`).then(e => e.json())
       },
 
+      getInvestmentBySymbol: (symbol, userId) => {
+        return fetch(`${remoteURL}/investments/?symbol=${symbol}&userId=${userId}`).then(e => e.json())
+      },
+
       post: (newObject, database) => {
         return fetch(`${remoteURL}/${database}`, {
           method: "POST",
@@ -20,7 +24,7 @@ const API = {
 
       getLoginUser: (credentials) =>
       {
-        return fetch(`${remoteURL}/users/?$where=userName=${credentials.userName}&password=${credentials.password}`)
+        return fetch(`${remoteURL}/users/?userName=${credentials.userName}&password=${credentials.password}`)
                 .then(response =>response.json())
       },
 
@@ -39,7 +43,18 @@ const API = {
           },
           body: JSON.stringify(editedObject)
         }).then(data => data.json());
+      },
+
+      updatePartial: (editedObject, database) => {
+        return fetch(`${remoteURL}/${database}/${editedObject.id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(editedObject)
+        }).then(data => data.json());
       }
+      
      
 }
 

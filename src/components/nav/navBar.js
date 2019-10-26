@@ -66,6 +66,9 @@ class NavBar extends Component {
               <NavItem>
                 <NavLink href="/portfolio">Portfolio</NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink href="/profile">Profile</NavLink>
+              </NavItem>
                 <NavItem>
                     <NavLink  onClick={() => {this.handleLogout()}} >Logout</NavLink>
               </NavItem>
