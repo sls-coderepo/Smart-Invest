@@ -1,57 +1,86 @@
 import React, {Component} from 'react'
-import {Table} from 'reactstrap'
+import {Table, Button} from 'reactstrap'
 import API from '../../modules/API.Manager';
 import APIIex from '../../modules/API.IEXManager';
-import APIStock from '../../modules/API.AlphaVintageManager'
+import BootBox from 'react-bootbox';
+
+
+
 
 class WatchList extends Component {
     state = {
         watchList: [],
-        stockWatch: {
-            symbol:'',
-            companyName:'',
-            latestPrice:""
-        }
+        watchListWithCurrentValue: [],
+        showDeleteConfirm: false,
+        selectedWatchListId: 0
     }
 
-     getCurrentPrice = (stock) =>
+    getLatestQuote = (symbols) =>
     {
-          var stockWatch = {
-                symbol: stock.symbol,
-                companyName: stock.stockName,
-                latestPrice: ""
-            };
-            console.log(stock)
-             return APIStock.getGlobalQuote(stock.symbol).then((response) => {console.log(response)
-             stockWatch.latestPrice =  response["05. price"]
-             return stockWatch
-            })
-           //return stockWatch
-            
+        return APIIex.getMarketBatch(symbols).then(data => {
+            return data
+        })
     }
 
     getData = () => {
-        var stocklist=[]
+        let stockList=[]
         API.getAll("watchlists").then(data => {
-            data.forEach((stock) => 
-                     {
-                         console.log(stock)
-                         //console.log(this.getCurrentPrice(stock))
-                        stocklist.push(this.getCurrentPrice(stock))
-                        //stocklist.push(this.state.stockWatch)
-                    }
+            this.setState({
+                watchList : data
+            })
+        }).then(() => {
+            let symbolArray = []
+            this.state.watchList.forEach((item) =>
+                {
+                    symbolArray.push(item.symbol)
+                }
             )
-            //console.table(stocklist)
-            //this.setState({watchList:stocklist})
-            //console.table(this.state.watchList)
-        }).then(() => Promise.all(stocklist).then((values) =>  this.setState({watchList:values})))
+            if(symbolArray.length > 0)
+            {
+                const symbols= symbolArray.join();
+                this.getLatestQuote(symbols).then((data)=>{
+                    console.log(data)
+                    this.state.watchList.forEach((item) =>
+                    {
+                        let stock =
+                                        {
+                                            id:item.id,
+                                            symbol:item.symbol,
+                                            stockName:item.stockName,
+                                            latestPrice:data[item.symbol].quote.latestPrice,
+                                            change:data[item.symbol].quote.change,
+                                            changePercent:data[item.symbol].quote.changePercent,
+                                          
+                                        };
+                                        stockList.push(stock)
+                    }
+                )
+                }).then(() => Promise.all(stockList)).then((values) => this.setState({watchListWithCurrentValue:values}))
+            }
+        })
+    }
+    showConfirmBox = (id) => {
+        this.setState({
+            showDeleteConfirm: true,
+            selectedWatchListId: id
+        })
     }
 
+    handleDelete = () => {
+        API.delete(this.state.selectedWatchListId, "watchlists").then(() => this.getData())
+        this.handleClose()
+    }
+
+    handleClose = () => {
+        this.setState({
+            showDeleteConfirm: false
+        })
+    }
     
- 
     componentDidMount(){
          this.getData()
     }
+
     render(){
         console.log(this.state.watchList)
         return(
@@ -63,25 +92,39 @@ class WatchList extends Component {
                 <tr>
                     <th>Symbol</th>
                     <th>Name</th>
-                    <th>Price</th>
+                    <th className="text-right">Price</th>
+                    <th className="text-right">Change</th>
+                    <th className="text-right">Change %</th>
+                    <th></th>
+
                 </tr>
                 </thead>
                 <tbody>
-                   {this.state.watchList.map(list => {
+                   {this.state.watchListWithCurrentValue.map(list => {
                        
                        return (<tr  key = {list.id}>
                            <td>{list.symbol}</td>
-                           <td>{list.companyName}</td>
-                           <td>{list.latestPrice}</td>
-                           <td>
-                               <button>Edit</button>
-                               <button>Delete</button>
+                           <td>{list.stockName}</td>
+                           <td className="text-right">{list.latestPrice}</td>
+                           <td className="text-right">{list.change}</td>
+                           <td className="text-right">{list.changePercent}%</td>
+                           <td className="text-right">
+                           <Button type='button' color="secondary" size="sm" className="mx-1"
+                                    onClick={() => this.showConfirmBox(list.id)}>
+						            Delete
+				        </Button>
                            </td> 
                        </tr>)
                    })}
                 </tbody>
                 
             </Table>
+            <BootBox 
+                    message="Are you sure you want to delete?"
+                    show={this.state.showDeleteConfirm} 
+                    onYesClick = {this.handleDelete}
+                    onNoClick = {this.handleClose}
+                    onClose = {this.handleClose}/>
             </>
             
         )
