@@ -31,8 +31,8 @@ class PortfolioDetail extends Component {
     handleClick = () => {
             let stockWatch = {
             userId: parseInt(localStorage.getItem("loggedInUserId")),
-            symbol : this.state.stockDetails.symbol,
-            stockName : this.state.stockDetails.companyName
+            symbol : this.state.stockDetails.quote.symbol,
+            stockName : this.state.stockDetails.quote.companyName
 
         }
        API.post(stockWatch, "watchlists").then(() => {

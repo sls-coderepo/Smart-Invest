@@ -3,9 +3,11 @@ const API = {
       getAll: (database) => {
          return fetch(`${remoteURL}/${database}?_sort=date&_order=asc`).then(e => e.json())
        },
+
       get: (id, database) => {
         return fetch(`${remoteURL}/${database}/${id}`).then(e => e.json())
       },
+
       post: (newObject, database) => {
         return fetch(`${remoteURL}/${database}`, {
           method: "POST",
@@ -15,15 +17,30 @@ const API = {
           body: JSON.stringify(newObject)
         }).then(data => data.json())
       },
+
       getLoginUser: (credentials) =>
       {
         return fetch(`${remoteURL}/users/?$where=userName=${credentials.userName}&password=${credentials.password}`)
                 .then(response =>response.json())
+      },
+
+      delete: (id, database) => {
+        return fetch(`${remoteURL}/${database}/${id}`, {
+          method: "DELETE"
+        })
+          .then(result => result.json())
+      },
+
+      update: (editedObject, database) => {
+        return fetch(`${remoteURL}/${database}/${editedObject.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(editedObject)
+        }).then(data => data.json());
       }
      
-    
 }
 
- 
- 
-export default API
+ export default API

@@ -119,16 +119,16 @@
   ],
   "watchlists": [
     {
-      "userId": "9",
-      "symbol": "BABA",
-      "stockName": "Alibaba Group Holding Ltd.",
-      "id": 8
-    },
-    {
       "userId": 10,
       "symbol": "MSFT",
       "stockName": "Microsoft Corp.",
       "id": 9
+    },
+    {
+      "userId": 10,
+      "symbol": "AAPL",
+      "stockName": "Apple, Inc.",
+      "id": 10
     }
   ]
 }
