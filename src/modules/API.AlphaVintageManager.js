@@ -8,8 +8,17 @@ const APIStock = {
             "Content-Type": "application/json"
           },
         }).then(data => data.json())
-        .then(parsedDate => parsedDate.results)
+        .then((parsedDate) => { return parsedDate})
       },
+       getGlobalQuote: (symbol) => {
+        return fetch(`${remoteURL}/query?symbol=${symbol}&function=GLOBAL_QUOTE&apikey=${API_KEY}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          },
+        }).then(data => data.json())
+        .then((parsedDate) => { return parsedDate["Global Quote"]})
+      }, 
     search:(keyword) => {
       return fetch(`${remoteURL}/query?keywords=${keyword}&function=SYMBOL_SEARCH&apikey=${API_KEY}`, {
         method:"GET",

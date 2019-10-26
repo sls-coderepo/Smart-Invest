@@ -35,7 +35,7 @@ class Login extends Component {
                 }
                 else{
                     this.props.toggleLogin()
-                    this.props.setUser(response[0].id)
+                    this.props.setUser(response[0].id, response[0].firstName)
                     this.props.history.push('/')
                 }
             })

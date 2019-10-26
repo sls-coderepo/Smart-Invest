@@ -19,17 +19,6 @@
   ],
   "investments": [
     {
-      "id": 1,
-      "userId": 1,
-      "parentId": 1,
-      "symbol": "",
-      "stockName": "",
-      "purchasePrice": "",
-      "purchaseQty": "",
-      "totalAmount": "",
-      "purchaseDate": ""
-    },
-    {
       "userId": 9,
       "symbol": "SSYS",
       "stockName": "Stratasys Ltd.",
@@ -86,15 +75,49 @@
       "totalPrice": 1217.9,
       "purchaseDate": 1571971558867,
       "id": 8
+    },
+    {
+      "userId": 10,
+      "symbol": "MSFT",
+      "stockName": "Microsoft Corp.",
+      "purchasePrice": 141.005,
+      "purchaseQty": "2",
+      "totalPrice": 282.01,
+      "purchaseDate": 1572017044365,
+      "id": 9
+    },
+    {
+      "userId": 10,
+      "symbol": "MSFT",
+      "stockName": "Microsoft Corp.",
+      "purchasePrice": 140.66,
+      "purchaseQty": "1",
+      "totalPrice": 140.66,
+      "purchaseDate": 1572025846644,
+      "id": 10
+    },
+    {
+      "userId": 10,
+      "symbol": "BABA",
+      "stockName": "Alibaba Group Holding Ltd.",
+      "purchasePrice": 174.31,
+      "purchaseQty": "5",
+      "totalPrice": 871.55,
+      "purchaseDate": 1572055647878,
+      "id": 11
+    },
+    {
+      "userId": 10,
+      "symbol": "SSL",
+      "stockName": "Sasol Ltd.",
+      "purchasePrice": 18.57,
+      "purchaseQty": "8",
+      "totalPrice": 148.56,
+      "purchaseDate": 1572067057728,
+      "id": 12
     }
   ],
   "watchlists": [
-    {
-      "id": 1,
-      "userId": 1,
-      "symbol": "",
-      "stockName": ""
-    },
     {
       "userId": "9",
       "symbol": "BABA",
@@ -102,16 +125,10 @@
       "id": 8
     },
     {
-      "userId": 9,
-      "symbol": "COST",
-      "stockName": "Costco Wholesale Corp.",
-      "id": 9
-    },
-    {
-      "userId": 9,
+      "userId": 10,
       "symbol": "MSFT",
       "stockName": "Microsoft Corp.",
-      "id": 10
+      "id": 9
     }
   ]
 }

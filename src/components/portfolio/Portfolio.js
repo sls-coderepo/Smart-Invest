@@ -36,7 +36,7 @@ class Portfolio extends Component {
 
     hasSymbols = ()=>
     {
-        if(this.state.searchResult.length >0)
+        if(this.state.searchResult.length > 0)
         {
             return true;
         }

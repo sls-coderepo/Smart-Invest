@@ -36,17 +36,7 @@ class PortfolioSearch extends Component {
         return false;
     }
 
-    componentWillReceiveProps()
-    {
-        const search = this.props.location.search; 
-        const params = new URLSearchParams(search);
-        const keywordParam = params.get('keyword'); 
-        this.setState({
-            keyword : keywordParam
-        })
-        this.getStockList();
-    }
-      
+        
     render(){
         return (
         <>
