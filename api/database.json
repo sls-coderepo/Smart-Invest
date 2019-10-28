@@ -115,6 +115,16 @@
       "totalPrice": 148.56,
       "purchaseDate": 1572067057728,
       "id": 12
+    },
+    {
+      "userId": 9,
+      "symbol": "BABA",
+      "stockName": "Alibaba Group Holding Ltd.",
+      "purchasePrice": 178.335,
+      "purchaseQty": "2",
+      "totalPrice": "356.67",
+      "purchaseDate": 1572272451440,
+      "id": 13
     }
   ],
   "watchlists": [
@@ -129,6 +139,12 @@
       "symbol": "AAPL",
       "stockName": "Apple, Inc.",
       "id": 10
+    },
+    {
+      "userId": 9,
+      "symbol": "BABA",
+      "stockName": "Alibaba Group Holding Ltd.",
+      "id": 11
     }
   ]
 }
