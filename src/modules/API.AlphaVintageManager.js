@@ -1,5 +1,7 @@
 const remoteURL = "https://www.alphavantage.co/query"
-const API_KEY = "KROSQN39FT2HC4FX"
+//const API_KEY = "KROSQN39FT2HC4FX" used
+//const API_KEY = "NOC4XAL084ZYQSPM"
+const API_KEY = "KCODD4BUO6XBOZ1L" 
 const APIStock = {
     get: (symbol, functionType) => {
         return fetch(`${remoteURL}/query?symbol=${symbol}&function=${functionType}&apikey=${API_KEY}`, {

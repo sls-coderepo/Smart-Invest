@@ -21,6 +21,7 @@ class Portfolio extends Component {
              e.preventDefault();
              APIStock.search(this.state.keyword).then((data) => {
                             this.setState({searchResult: data})
+                            console.log(data)
                             })
         } 
        // this.props.history.push(`/PortfolioSearch?keyword=${this.state.keyword}`)

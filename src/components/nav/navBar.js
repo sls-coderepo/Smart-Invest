@@ -8,25 +8,25 @@ import {NavbarToggler, Navbar, NavbarBrand, NavLink, Collapse, Nav, NavItem} fro
 
 class NavBar extends Component {
     state = {
-        isLoggedIn: localStorage.getItem("loggedInUserId") !== null,
+        isLoggedIn: sessionStorage.getItem("loggedInUserId") !== null,
         loggedInUserId: '',
         loggedInUserName: '',
         isLoginModalOpen : false,
         isSignupModalOpen : false
     }
 
-    isAuthenticated = () => localStorage.getItem("loggedInUserId") !== null
+    isAuthenticated = () => sessionStorage.getItem("loggedInUserId") !== null
 
     setUser = (userId, userName) => {
-      localStorage.setItem('loggedInUserId', userId);
-      localStorage.setItem('loggedInUserName', userName);
+      sessionStorage.setItem('loggedInUserId', userId);
+      sessionStorage.setItem('loggedInUserName', userName);
       this.setState({ loggedInUserId: userId, loggedInUserName: userName, isLoggedIn: true });
     }
 
     clearUser = () =>
     {
-      localStorage.removeItem('loggedInUserId');
-      localStorage.removeItem('loggedInUserName');
+      sessionStorage.removeItem('loggedInUserId');
+      sessionStorage.removeItem('loggedInUserName');
       this.setState({
         loggedInUserId: '', 
         isLoggedIn: false 
@@ -38,6 +38,7 @@ class NavBar extends Component {
       this.props.history.push('/');
     }
     toggleLogin = () => {
+        
         this.setState(prevState => ({
         isLoginModalOpen : !prevState.isLoginModalOpen
       }))
@@ -64,7 +65,7 @@ class NavBar extends Component {
               <>
               <NavItem><NavLink>Welcome {this.state.loggedInUserName}!</NavLink></NavItem> 
               <NavItem>
-                <NavLink href="/portfolio">Portfolio</NavLink>
+                <NavLink href="/portfolio" >Portfolio</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/profile">Profile</NavLink>
