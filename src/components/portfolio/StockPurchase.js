@@ -53,7 +53,9 @@ class StockPurchase extends Component {
             purchasePrice : this.props.quote.latestPrice,
             purchaseQty : this.state.purchaseQty,
             totalPrice : this.state.totalPurchase,
-            purchaseDate: Date.now()
+            purchaseDate: Date.now(),
+            parentId: 0
+
            
             
             }

@@ -7,6 +7,7 @@ import Portfolio from './components/portfolio/Portfolio'
 import PortfolioSearch from './components/portfolio/Search'
 import PortfolioDetail from './components/portfolio/PortfolioDetail'
 import Profile from './components/auth/Profile';
+import AlternateRouteSearch from './components/portfolio/AlternateRouteSearch';
 
 class ApplicationViews extends Component {
     render () {
@@ -25,13 +26,16 @@ class ApplicationViews extends Component {
                     return <SignUp  {...props}/>
                 }}/>
                 <Route exact path='/portfolio' render={props => {
-                    return <Portfolio {...props}/>
+                    return <Portfolio  {...props}/>
                 }}/> 
                 <Route exact path='/portfolioSearch' render={props => {
                     return <PortfolioSearch {...props}/>
                 }}/> 
                 <Route path='/portfolio/:symbol' render={props => {
                     return <PortfolioDetail symbol={props.match.params.symbol} {...props}/>
+                }}/> 
+                 <Route exact path='/alternateSearch' render={props => {
+                    return <AlternateRouteSearch {...props}/>
                 }}/> 
             </React.Fragment>
         )

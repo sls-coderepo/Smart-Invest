@@ -1,10 +1,9 @@
 import React, {Component} from 'react'
 import {Alert,Input,InputGroup, InputGroupAddon, Button} from 'reactstrap'
-import APIStock from '../../modules/API.AlphaVintageManager';
 import PortfolioSearchResult from './PortfolioSearchResult';
 import APIIex from '../../modules/API.IEXManager';
 
-class PortfolioSearch extends Component {
+class AlternateRouteSearch extends Component {
     state = {
        keyword: "",
        searchResult: [],
@@ -61,4 +60,4 @@ class PortfolioSearch extends Component {
     }
 } 
 
-export default PortfolioSearch
+export default AlternateRouteSearch

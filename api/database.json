@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "firstName": "mk",
+      "firstName": "mks",
       "lastName": "mk",
       "emailAddress": "mk@mk.com",
       "userName": "mk",
@@ -15,6 +15,14 @@
       "userName": "ss",
       "password": "ss",
       "id": 10
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "emailAddress": "",
+      "userName": "mk",
+      "password": "mk",
+      "id": 11
     }
   ],
   "investments": [
@@ -35,36 +43,6 @@
       "purchaseQty": "2",
       "totalPrice": 289.53,
       "id": 4
-    },
-    {
-      "userId": 9,
-      "symbol": "SSW",
-      "stockName": "Seaspan Corp.",
-      "purchasePrice": 11.345,
-      "purchaseQty": "3",
-      "totalPrice": 34.035000000000004,
-      "purchaseDate": "",
-      "id": 5
-    },
-    {
-      "userId": 9,
-      "symbol": "SSO",
-      "stockName": "ProShares Ultra S&P500",
-      "purchasePrice": 131.03,
-      "purchaseQty": "4",
-      "totalPrice": 524.12,
-      "purchaseDate": "",
-      "id": 6
-    },
-    {
-      "userId": 9,
-      "symbol": "SSI",
-      "stockName": "Stage Stores, Inc.",
-      "purchasePrice": 2.34,
-      "purchaseQty": "4",
-      "totalPrice": 9.36,
-      "purchaseDate": 1571943536526,
-      "id": 7
     },
     {
       "userId": 10,
@@ -107,44 +85,67 @@
       "id": 11
     },
     {
-      "userId": 10,
-      "symbol": "SSL",
-      "stockName": "Sasol Ltd.",
-      "purchasePrice": 18.57,
-      "purchaseQty": "8",
-      "totalPrice": 148.56,
-      "purchaseDate": 1572067057728,
+      "userId": 9,
+      "symbol": "SSO",
+      "stockName": "ProShares Ultra S&P500",
+      "purchasePrice": 133.94,
+      "purchaseQty": "2",
+      "totalPrice": "267.88",
+      "purchaseDate": 1572362867056,
+      "parentId": 0,
       "id": 12
     },
     {
       "userId": 9,
-      "symbol": "BABA",
-      "stockName": "Alibaba Group Holding Ltd.",
-      "purchasePrice": 178.335,
-      "purchaseQty": "2",
-      "totalPrice": "356.67",
-      "purchaseDate": 1572272451440,
+      "symbol": "DD",
+      "stockName": "DuPont de Nemours, Inc.",
+      "purchasePrice": 67.435,
+      "purchaseQty": "74.15",
+      "totalPrice": "5000",
+      "purchaseDate": 1572362917338,
+      "parentId": 0,
       "id": 13
+    },
+    {
+      "userId": 9,
+      "symbol": "AP",
+      "stockName": "Ampco-Pittsburgh Corp.",
+      "purchasePrice": 3.62,
+      "purchaseQty": "138.12",
+      "totalPrice": "500",
+      "purchaseDate": 1572363265744,
+      "parentId": 0,
+      "id": 14
+    },
+    {
+      "userId": 9,
+      "symbol": "MSFT",
+      "stockName": "Microsoft Corp.",
+      "purchasePrice": 143.19,
+      "purchaseQty": "2",
+      "totalPrice": "286.38",
+      "purchaseDate": 1572363690546,
+      "parentId": 0,
+      "id": 15
+    },
+    {
+      "userId": 9,
+      "symbol": "PRWCX",
+      "stockName": "T Rowe Price Capital Appreciation Fund",
+      "purchasePrice": 31.37,
+      "purchaseQty": "2",
+      "totalPrice": "62.74",
+      "purchaseDate": 1572365446483,
+      "parentId": 0,
+      "id": 16
     }
   ],
   "watchlists": [
     {
       "userId": 10,
-      "symbol": "MSFT",
-      "stockName": "Microsoft Corp.",
-      "id": 9
-    },
-    {
-      "userId": 10,
       "symbol": "AAPL",
       "stockName": "Apple, Inc.",
       "id": 10
-    },
-    {
-      "userId": 9,
-      "symbol": "BABA",
-      "stockName": "Alibaba Group Holding Ltd.",
-      "id": 11
     }
   ]
 }

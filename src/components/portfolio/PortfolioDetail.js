@@ -46,7 +46,7 @@ class PortfolioDetail extends Component {
     }
 
     handleAddAlternateRouteClick () {
-        
+        this.props.history.push('/alternateSearch')
     }
     
     componentDidMount  ()  {
@@ -155,8 +155,7 @@ class PortfolioDetail extends Component {
                     </li>
                     
                     </ul>
-                     
-                      
+                                           
                      <small>{this.state.stockDetails.company.description}<br />
                          Employees: {this.state.stockDetails.company.employees}<br />
                          Sector: {this.state.stockDetails.company.sector}<br />
@@ -178,7 +177,7 @@ class PortfolioDetail extends Component {
                 <Col>
                     <div className="float-right p-2">
                         {
-                            (this.state.investment.length>0)?
+                            (this.state.investment.length > 0) ?
                             (   <>
                                 <Button className="ml-2" onClick={() => this.handleSellStockClick()}>Sell Stock</Button> 
                                 <Button className="ml-2" onClick={() => this.handleAddAlternateRouteClick()}>Add Alternate Route</Button> 
