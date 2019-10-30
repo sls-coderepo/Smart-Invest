@@ -12,7 +12,7 @@ const APIIex = {
         .then((parsedDate)=> {return parsedDate})
       },
       getDetailBatch:(symbol) => {
-        return fetch(`${remoteURL}/${symbol}/batch?types=quote,news,chart,company,logo&range=1m&last=10&token=${API_KEY}`, {
+        return fetch(`${remoteURL}/${symbol}/batch?types=quote,news,chart,company,logo&range=1m&last=5&token=${API_KEY}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

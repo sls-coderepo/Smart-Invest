@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import { Redirect } from 'react-router-dom';
 import {Alert,Input,InputGroup, InputGroupAddon, Button} from 'reactstrap'
 import APIStock from '../../modules/API.AlphaVintageManager';
 import PortfolioSearchResult from './PortfolioSearchResult';

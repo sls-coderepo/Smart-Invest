@@ -7,36 +7,12 @@ import {NavbarToggler, Navbar, NavbarBrand, NavLink, Collapse, Nav, NavItem} fro
 
 
 class NavBar extends Component {
+  
     state = {
-        isLoggedIn: sessionStorage.getItem("loggedInUserId") !== null,
-        loggedInUserId: '',
-        loggedInUserName: '',
-        isLoginModalOpen : false,
-        isSignupModalOpen : false
+      isLoginModalOpen : false,
+      isSignupModalOpen : false
     }
 
-    isAuthenticated = () => sessionStorage.getItem("loggedInUserId") !== null
-
-    setUser = (userId, userName) => {
-      sessionStorage.setItem('loggedInUserId', userId);
-      sessionStorage.setItem('loggedInUserName', userName);
-      this.setState({ loggedInUserId: userId, loggedInUserName: userName, isLoggedIn: true });
-    }
-
-    clearUser = () =>
-    {
-      sessionStorage.removeItem('loggedInUserId');
-      sessionStorage.removeItem('loggedInUserName');
-      this.setState({
-        loggedInUserId: '', 
-        isLoggedIn: false 
-      })
-    }
-
-    handleLogout = ()=> {
-      this.clearUser();
-      this.props.history.push('/');
-    }
     toggleLogin = () => {
         
         this.setState(prevState => ({
@@ -50,9 +26,13 @@ class NavBar extends Component {
       }))
     }
 
+    handleLogout = ()=> {
+      this.props.clearUser();
+      this.props.history.push('/');
+    }
 
   render() {
-    
+    console.log("I want to know username", this.props.loggedInUserName )
     return (
       <>
       <Navbar color="light" light expand="md">
@@ -60,10 +40,12 @@ class NavBar extends Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.isOpen} navbar>
           <Nav className="ml-auto" navbar>
-            { this.state.isLoggedIn ?
+            { this.props.isLoggedIn ?
             (
               <>
-              <NavItem><NavLink>Welcome {this.state.loggedInUserName}!</NavLink></NavItem> 
+              <NavItem>
+                <NavLink>Welcome {this.props.loggedInUserName}!</NavLink>
+              </NavItem> 
               <NavItem>
                 <NavLink href="/portfolio" >Portfolio</NavLink>
               </NavItem>
@@ -92,12 +74,12 @@ class NavBar extends Component {
       </Navbar>
       <Login isLoginModalOpen = {this.state.isLoginModalOpen}
              toggleLogin = {this.toggleLogin}
-             setUser = {this.setUser}
+             setUser = {this.props.setUser}
                        {...this.props}/>
              
       <SignUp isSignupModalOpen = {this.state.isSignupModalOpen} 
               toggleSignUp = {this.toggleSignUp}
-              setUser= {this.setUser}
+              setUser= {this.props.setUser}
                       {...this.props}/>
       </>
     );

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap'
 import API from '../../modules/API.Manager';
+
 class Login extends Component {
     state = {
         userName: "",
@@ -26,10 +27,12 @@ class Login extends Component {
         }
         else
         {
-            let credentials = {userName: this.state.userName, password: this.state.password}
+            let credentials = {
+                userName: this.state.userName, 
+                password: this.state.password
+            }
             API.getLoginUser(credentials).then((response) => {
-                console.log(response)
-                if(response.length == 0)
+                if(response.length === 0)
                 {
                     alert('Invalid login.')
                 }

@@ -47,7 +47,7 @@ class StockPurchase extends Component {
             return;
         }
          let newInvestment = {
-            userId : parseInt(localStorage.getItem("loggedInUserId")),
+            userId : parseInt(sessionStorage.getItem("loggedInUserId")),
             symbol : this.props.quote.symbol,
             stockName : this.props.quote.companyName,
             purchasePrice : this.props.quote.latestPrice,

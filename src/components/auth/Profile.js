@@ -26,10 +26,9 @@ class Profile extends Component {
         {
             alert('Please enter a valid user name')
         }
-      
         else{
             let updatedUser = {
-                id: localStorage.getItem("loggedInUserId"),
+                id: sessionStorage.getItem("loggedInUserId"),
                 firstName: this.state.firstName,
                 lastName: this.state.lastName,
                 emailAddress: this.state.emailAddress,
@@ -37,15 +36,14 @@ class Profile extends Component {
                
             }
             API.updatePartial(updatedUser, "users").then((response) => {
-                
-                this.props.history.push('/')
+                    this.props.history.push('/')
             })
         }
 
     }
 
     componentDidMount() {
-        let userId = localStorage.getItem("loggedInUserId")
+        let userId = sessionStorage.getItem("loggedInUserId")
         API.get(userId, "users").then(user => {
             this.setState({
                 firstName: user.firstName,

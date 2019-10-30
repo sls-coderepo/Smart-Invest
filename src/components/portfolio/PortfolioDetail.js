@@ -5,6 +5,7 @@ import APIIex from '../../modules/API.IEXManager';
 import API from '../../modules/API.Manager'
 import StockPurchase from './StockPurchase';
 import moment from 'moment'
+import AlternateStock from './AlternateStock'
 
 class PortfolioDetail extends Component {
     
@@ -16,9 +17,10 @@ class PortfolioDetail extends Component {
             news: [],
             quote: {},
         },
-        loggedInUserId: parseInt(localStorage.getItem("loggedInUserId")),
+        loggedInUserId: parseInt(sessionStorage.getItem("loggedInUserId")),
         isPurchaseModalOpen : false,
-        investment:{}
+        investment:{},
+        investmentId:0,
        
     }
 
@@ -31,7 +33,7 @@ class PortfolioDetail extends Component {
     
     handleAddToWatchListClick = () => {
             let stockWatch = {
-            userId: parseInt(localStorage.getItem("loggedInUserId")),
+            userId: parseInt(sessionStorage.getItem("loggedInUserId")),
             symbol : this.state.stockDetails.quote.symbol,
             stockName : this.state.stockDetails.quote.companyName
 
@@ -45,8 +47,8 @@ class PortfolioDetail extends Component {
 
     }
 
-    handleAddAlternateRouteClick () {
-        this.props.history.push('/alternateSearch')
+    handleAddAlternateRouteClick (investmentId) {
+        this.props.history.push(`/portfolio/${investmentId}/alternate`)
     }
     
     componentDidMount  ()  {
@@ -56,12 +58,11 @@ class PortfolioDetail extends Component {
             })
          API.getInvestmentBySymbol(this.props.symbol, this.state.loggedInUserId).then(data => {
             this.setState({
-                investment : data
+                investment : data,
             })
-        })
+        }).then(()=>{console.log(this.state.investment)})
             //console.log(this.state.stockDetails.quote.companyName)
         });
-		
     }
     
     render(){
@@ -78,6 +79,17 @@ class PortfolioDetail extends Component {
                         <tr><td>{this.state.stockDetails.quote.change}</td></tr>
                         <tr><td>{this.state.stockDetails.quote.changePercent}%</td></tr>
                     </table>
+                </Col>
+                <Col md="3">
+                {
+                    (this.state.investment.length > 0) ?
+                    ( <>
+                        <h3> ${(parseFloat(this.state.stockDetails.quote.latestPrice)*parseFloat(this.state.investment[0].purchaseQty)).toFixed(2)}</h3>
+                        
+                        <small>${this.state.investment[0].totalPrice} ({(parseFloat(this.state.stockDetails.quote.latestPrice)*parseFloat(this.state.investment[0].purchaseQty) - this.state.investment[0].totalPrice).toFixed(2)})</small>
+                    </>
+                    ):null
+                }
                 </Col>
             </Row>
             <Row className="mt-4">
@@ -127,6 +139,40 @@ class PortfolioDetail extends Component {
                 </Col>
             </Row>
 
+            
+            <Row className="mt-4">
+                <Col>
+                    <div className="float-right p-2">
+                        {
+                            (this.state.investment.length > 0) ?
+                            (   <>
+                                <Button className="ml-2" onClick={() => this.handleSellStockClick()}>Sell Stock</Button> 
+                                <Button className="ml-2" onClick={() => this.handleAddAlternateRouteClick(this.state.investment[0].id)}>Add Alternate Route</Button> 
+                                </>
+                            )
+                            :
+                            (
+                                <>
+                                <Button className="ml-2" onClick={() => this.handleAddToWatchListClick()}>Add to Watchlist</Button> 
+                                <Button className="ml-2" onClick={() => {this.togglePurchaseModal()}}>Buy</Button> 
+                                </>
+                            )
+                        }
+                        
+                    </div>
+                </Col>
+            </Row>
+            {
+                (this.state.investment.length > 0) ?
+                ( <>
+                        <Row className="mt-4">
+                            <Col>
+                                <AlternateStock investmentId={this.state.investment[0].id}  investment={this.state.investment}  {...this.props}/>
+                            </Col>
+                        </Row>
+                        </>
+                ):null
+            }
             <Row className="mt-4">
                 <Col md-6>
                     <Card className="px-2">
@@ -172,29 +218,7 @@ class PortfolioDetail extends Component {
                 </Card>
                 </Col>
             </Row>
-
-            <Row className="mt-4">
-                <Col>
-                    <div className="float-right p-2">
-                        {
-                            (this.state.investment.length > 0) ?
-                            (   <>
-                                <Button className="ml-2" onClick={() => this.handleSellStockClick()}>Sell Stock</Button> 
-                                <Button className="ml-2" onClick={() => this.handleAddAlternateRouteClick()}>Add Alternate Route</Button> 
-                                </>
-                            )
-                            :
-                            (
-                                <>
-                                <Button className="ml-2" onClick={() => this.handleAddToWatchListClick()}>Add to Watchlist</Button> 
-                                <Button className="ml-2" onClick={() => {this.togglePurchaseModal()}}>Buy</Button> 
-                                </>
-                            )
-                        }
-                        
-                    </div>
-                </Col>
-            </Row>
+               
             
             <StockPurchase isPurchaseModalOpen = {this.state.isPurchaseModalOpen}
                            togglePurchaseModal = {this.togglePurchaseModal}

@@ -1,11 +1,15 @@
 const remoteURL = "http://localhost:5002"
 const API = {
-      getAll: (database) => {
-         return fetch(`${remoteURL}/${database}?_sort=date&_order=asc`).then(e => e.json())
+      getAll: (database,userId) => {
+         return fetch(`${remoteURL}/${database}?userId=${userId}&_sort=date&_order=asc`).then(e => e.json())
        },
 
-      get: (id, database) => {
-        return fetch(`${remoteURL}/${database}/${id}`).then(e => e.json())
+      get: (id, userId, database) => {
+        return fetch(`${remoteURL}/${database}/${id}?userId=${userId}`).then(e => e.json())
+      },
+
+      getInvestments: (userId) => {
+        return fetch(`${remoteURL}/investments/?parentId=0&userId=${userId}`).then(e => e.json())
       },
 
       getInvestmentBySymbol: (symbol, userId) => {
@@ -53,8 +57,13 @@ const API = {
           },
           body: JSON.stringify(editedObject)
         }).then(data => data.json());
+      },
+
+      getAlternateStocks: (investmentId, userId) =>
+      {
+        return fetch(`${remoteURL}/investments/?parentId=${investmentId}&userId=${userId}`).then(e => e.json())
       }
-      
+       
      
 }
 
