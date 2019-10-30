@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import {Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap'
 import API from '../../modules/API.Manager'
-import APIIex from '../../modules/API.IEXManager'
-import NumberFormat from 'react-number-format'
 
 
 class StockPurchase extends Component {

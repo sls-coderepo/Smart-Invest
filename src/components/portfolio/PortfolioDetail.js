@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import {Row, Col, Button, Card, Table} from 'reactstrap'
-import {Link} from 'react-dom'
 import APIIex from '../../modules/API.IEXManager';
 import API from '../../modules/API.Manager'
 import StockPurchase from './StockPurchase';
@@ -76,8 +75,10 @@ class PortfolioDetail extends Component {
                 <Col md="1"><h4>{this.state.stockDetails.quote.latestPrice}</h4></Col>
                 <Col md="2">
                     <table>
+                        <tbody>
                         <tr><td>{this.state.stockDetails.quote.change}</td></tr>
                         <tr><td>{this.state.stockDetails.quote.changePercent}%</td></tr>
+                        </tbody>
                     </table>
                 </Col>
                 <Col md="3">
@@ -177,7 +178,7 @@ class PortfolioDetail extends Component {
                 <Col md-6>
                     <Card className="px-2">
                         <ul class="list-unstyled">
-                        {this.state.stockDetails.news.map(news => {
+                            {this.state.stockDetails.news.map(news => {
                             return (<li class="media my-2 py-2 border-bottom">
                             <img src={news.image} class="mr-3"  width="80px" />
                             <div class="media-body">

@@ -52,7 +52,8 @@ import ApplicationViews from './ApplicationViews';
                   clearUser = {this.clearUser}
                   />
             <div className="container pt-5">
-              <ApplicationViews loggedInUserId={this.state.loggedInUserId}/>
+              <ApplicationViews 
+                  loggedInUserId={this.state.loggedInUserId}/>
             </div>
           </>
       )

@@ -22,8 +22,9 @@ class AlternateStock extends Component {
     }
 
     getData = () => {
-        var stockInvestmentList = []
+        let stockInvestmentList = []
         API.getAlternateStocks(this.props.investmentId, this.state.loggedInUserId).then((response)=>{
+            console.log(response)
             this.setState({
                 alternateStockList: response
             })
@@ -31,16 +32,19 @@ class AlternateStock extends Component {
             let symbolArray = []
             this.state.alternateStockList.forEach((item) =>
                 {
+                    console.log(item)
                     symbolArray.push(item.symbol)
                 }
             )
-            if(symbolArray.length>0)
+            
+            if(symbolArray.length > 0)
             {
-                const symbols= symbolArray.join();
+                const symbols = symbolArray.join();
                 this.getLatestQuote(symbols).then((data)=>{
                     this.state.alternateStockList.forEach((item) =>
-                    {
-                        var stockInvestment =
+                   
+                    { console.log(item)
+                        let stockInvestment =
                                         {
                                             id:item.id,
                                             symbol:item.symbol,
@@ -55,7 +59,9 @@ class AlternateStock extends Component {
                                         };
                                         stockInvestmentList.push(stockInvestment)
                     }
+                    
                 )
+               console.log(stockInvestmentList)
                 }).then(() => Promise.all(stockInvestmentList)).then((values) => this.setState({alternateWithCurrentValueList:values}))
             }
         })
@@ -63,12 +69,13 @@ class AlternateStock extends Component {
 
      componentDidMount () {
         this.getData()
-        API.get(this.props.investmentId,this.state.loggedInUserId,"investments").then(response => {console.log(response); this.setState({
+        API.get(this.props.investmentId, this.state.loggedInUserId, "investments").then(response => {console.log(response); this.setState({
                investment : response
         })})
      }
       
     render(){
+        
         return (
             <>
             <h5>Alternate Routes for {this.state.investment.symbol}</h5>

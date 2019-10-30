@@ -32,7 +32,7 @@ class NavBar extends Component {
     }
 
   render() {
-    console.log("I want to know username", this.props.loggedInUserName )
+  
     return (
       <>
       <Navbar color="light" light expand="md">
