@@ -19,7 +19,7 @@
     "reactstrap": "^8.1.0"
   },
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"json-server -w api/database.json -p 5002\"",
+    "start": "concurrently \"react-scripts start\" \"json-server -w api/database.json -p 5002\" \"json-server -w api/stockdb.json -p 5003\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

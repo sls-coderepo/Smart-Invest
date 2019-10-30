@@ -12,7 +12,8 @@ class WatchList extends Component {
         watchList: [],
         watchListWithCurrentValue: [],
         showDeleteConfirm: false,
-        selectedWatchListId: 0
+        selectedWatchListId: 0,
+        loggedInUserId: sessionStorage.getItem('loggedInUserId')
     }
 
     getLatestQuote = (symbols) =>
@@ -24,7 +25,7 @@ class WatchList extends Component {
 
     getData = () => {
         let stockList=[]
-        API.getAll("watchlists").then(data => {
+        API.getAll("watchlists", this.state.loggedInUserId).then(data => {
             this.setState({
                 watchList : data
             })
@@ -57,6 +58,9 @@ class WatchList extends Component {
                 )
                 }).then(() => Promise.all(stockList)).then((values) => this.setState({watchListWithCurrentValue:values}))
             }
+            else{
+                this.setState({watchListWithCurrentValue:[],watchList : []})
+            }
         })
     }
     showConfirmBox = (id) => {
@@ -67,6 +71,7 @@ class WatchList extends Component {
     }
 
     handleDelete = () => {
+        console.log(this.state.selectedWatchListId)
         API.delete(this.state.selectedWatchListId, "watchlists").then(() => this.getData())
         this.handleClose()
     }

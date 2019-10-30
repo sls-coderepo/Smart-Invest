@@ -7,7 +7,7 @@ import Portfolio from './components/portfolio/Portfolio'
 import PortfolioSearch from './components/portfolio/Search'
 import PortfolioDetail from './components/portfolio/PortfolioDetail'
 import Profile from './components/auth/Profile';
-import AlternateRouteSearch from './components/portfolio/AlternateRouteSearch';
+import Alternate from './components/portfolio/Alternate';
 
 class ApplicationViews extends Component {
     render () {
@@ -17,7 +17,7 @@ class ApplicationViews extends Component {
                     return <Dashboard {...props}/>
                 }}/> 
                 <Route exact path="/profile" render={props => {
-                    return <Profile {...props}/>
+                    return <Profile  loggedInUserName = {this.props.loggedInUserName} {...props}/>
                 }}/> 
                 <Route path='/login' render={props => {
                     return <Login  {...props}/>
@@ -26,16 +26,16 @@ class ApplicationViews extends Component {
                     return <SignUp  {...props}/>
                 }}/>
                 <Route exact path='/portfolio' render={props => {
-                    return <Portfolio  {...props}/>
+                    return <Portfolio loggedInUserName = {this.props.loggedInUserName} {...props}/>
                 }}/> 
                 <Route exact path='/portfolioSearch' render={props => {
                     return <PortfolioSearch {...props}/>
                 }}/> 
-                <Route path='/portfolio/:symbol' render={props => {
+                <Route exact path='/portfolio/:symbol' render={props => {
                     return <PortfolioDetail symbol={props.match.params.symbol} {...props}/>
                 }}/> 
-                 <Route exact path='/alternateSearch' render={props => {
-                    return <AlternateRouteSearch {...props}/>
+                 <Route exact path='/portfolio/:investmentId/alternate' render={props => {
+                    return <Alternate investmentId={props.match.params.investmentId} {...props}/>
                 }}/> 
             </React.Fragment>
         )
