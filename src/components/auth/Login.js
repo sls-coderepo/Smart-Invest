@@ -6,7 +6,7 @@ class Login extends Component {
     state = {
         userName: "",
         password: "",
-                
+     
     }
 
     handleFieldChange = evt => {
@@ -14,12 +14,12 @@ class Login extends Component {
         stateToChange[evt.target.id] = evt.target.value
         this.setState(stateToChange)
     }
-
+   
     handleLogin = evt => {
         evt.preventDefault()
         if(this.state.userName === '')
         {
-            alert('Please enter a valid user name')
+           alert('Please enter a valid user name')
         }
         else if(this.state.password === '')
         {

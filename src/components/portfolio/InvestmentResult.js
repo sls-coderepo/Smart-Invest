@@ -16,13 +16,13 @@ class InvestmentResult extends Component {
 
     getLatestQuote = (symbols) =>
     {
-        return APIIex.getMarketBatch(symbols).then(data => {
+         return APIIex.getMarketBatch(symbols).then(data => {
             return data
         })
     }
     
     getData = () => {
-        var stockInvestmentList = []
+        let stockInvestmentList = []
         API.getInvestments(this.state.loggedInUserId).then(data => {
             this.setState({
                 investments: data
@@ -34,13 +34,13 @@ class InvestmentResult extends Component {
                     symbolArray.push(item.symbol)
                 }
             )
-            if(symbolArray.length>0)
+            if(symbolArray.length > 0)
             {
-                const symbols= symbolArray.join();
-                this.getLatestQuote(symbols).then((data)=>{
+                const symbols = symbolArray.join();
+                this.getLatestQuote(symbols).then( data => {
                     this.state.investments.forEach((item) =>
                     {
-                        var stockInvestment =
+                        let stockInvestment =
                                         {
                                             id:item.id,
                                             symbol:item.symbol,
