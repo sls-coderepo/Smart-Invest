@@ -1,17 +1,20 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import moment from 'moment'
-import {Table} from 'reactstrap'
+import {Table, Row, Col} from 'reactstrap'
 import API from '../../modules/API.Manager'
 import NumberFormat from 'react-number-format';
 import APIIex from '../../modules/API.IEXManager';
+import { Pie } from "react-chartjs-2"
+import { rootCertificates } from 'tls';
 
 
 class InvestmentResult extends Component {
     state = {
         investments: [],
         investmentsWithCurrentValueList: [],
-        loggedInUserId: sessionStorage.getItem('loggedInUserId')
+        loggedInUserId: sessionStorage.getItem('loggedInUserId'),
+        chartData: {},
     }
 
     getLatestQuote = (symbols) =>
@@ -20,7 +23,17 @@ class InvestmentResult extends Component {
             return data
         })
     }
-    
+
+    getRandomColor = () => {
+        var letters = '0123456789ABCDEF'.split('');
+        var color = '#';
+        for (var i = 0; i < 6; i++ ) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+       
     getData = () => {
         let stockInvestmentList = []
         API.getInvestments(this.state.loggedInUserId).then(data => {
@@ -55,7 +68,21 @@ class InvestmentResult extends Component {
                                         stockInvestmentList.push(stockInvestment)
                     }
                 )
-                }).then(() => Promise.all(stockInvestmentList)).then((values) => this.setState({investmentsWithCurrentValueList:values}))
+                }).then(() => Promise.all(stockInvestmentList)).then((values) => 
+                {
+                    this.setState({
+                        investmentsWithCurrentValueList:values,
+                        chartData: {
+                            labels: symbolArray,
+                            datasets: [{
+                                data: values.map(s=>s.totalPrice),
+                                backgroundColor: values.map(s=>this.getRandomColor())
+                                //backgroundColor:["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9", "#c45850","#d34"]
+                            }]
+                        }
+                    })
+                }                       
+                )
             }
         })
     }
@@ -64,6 +91,7 @@ class InvestmentResult extends Component {
 
     componentDidMount(){
         this.getData()
+        
     }
     
     render(){
@@ -93,12 +121,29 @@ class InvestmentResult extends Component {
                            <td className="text-right"><NumberFormat value={investment.totalPrice} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>
                            <td className="text-right"><NumberFormat value={investment.latestPrice} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>
                            <td className="text-right"><NumberFormat value={investment.totalAmount} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>                           
-                           <td className="text-right">{moment(investment.purchaseDate).format("ll")}</td>
+                           <td className="text-right">{moment(investment.purchaseDate).format("lll")}</td>
                        </tr>)
                    })}
                 </tbody>
             </Table>
-           
+
+            <Row mt-4="true">
+                <Col md-6="true">
+                    
+                </Col>
+                <Col md-6="true">
+                <Pie
+                    data={this.state.chartData}
+                    options={{
+                        legend: {
+                            display: true,
+                            position: "bottom"
+                        }
+                    }}
+                />
+                </Col>
+            </Row>
+            
             </>
         )
 } 

@@ -7,16 +7,19 @@
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.7",
     "bootstrap": "^4.3.1",
+    "chart.js": "^2.9.1",
     "concurrently": "^5.0.0",
     "moment": "^2.24.0",
-    "react": "^16.10.2",
-    "react-bootbox": "^1.1.1",
-    "react-dom": "^16.10.2",
+    "react": "^16.11.0",
+    "react-bootstrap": "^1.0.0-beta.14",
+    "react-bootstrap-dialog": "^0.13.0",
+    "react-chartjs-2": "^2.8.0",
+    "react-dom": "^16.11.0",
     "react-moment": "^0.9.6",
     "react-number-format": "^4.3.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
-    "reactstrap": "^8.1.0"
+    "reactstrap": "^8.1.1"
   },
   "scripts": {
     "start": "concurrently \"react-scripts start\" \"json-server -w api/database.json -p 5002\" \"json-server -w api/stockdb.json -p 5003\"",

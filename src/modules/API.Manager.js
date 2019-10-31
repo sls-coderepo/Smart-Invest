@@ -8,12 +8,16 @@ const API = {
         return fetch(`${remoteURL}/${database}/${id}?userId=${userId}`).then(e => e.json())
       },
 
+      getUserById: (id) => {
+        return fetch(`${remoteURL}/users/${id}`).then(e => e.json())
+      },
+
       getInvestments: (userId) => {
         return fetch(`${remoteURL}/investments/?parentId=0&userId=${userId}`).then(e => e.json())
       },
 
       getInvestmentBySymbol: (symbol, userId) => {
-        return fetch(`${remoteURL}/investments/?symbol=${symbol}&userId=${userId}`).then(e => e.json())
+        return fetch(`${remoteURL}/investments/?symbol=${symbol}&userId=${userId}&parentId=0`).then(e => e.json())
       },
 
       post: (newObject, database) => {

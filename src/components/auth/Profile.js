@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Form, FormGroup, Label, Input, Button,Card, CardBody, CardHeader, Row, Col} from 'reactstrap'
 import API from '../../modules/API.Manager'
+import Dialog from 'react-bootstrap-dialog'
 
 class Profile extends Component {
     state = {
@@ -21,10 +22,9 @@ class Profile extends Component {
 
     handleUpdate = evt => {
         evt.preventDefault()
-
         if(this.state.userName === '')
         {
-            alert('Please enter a valid user name')
+            this.dialog.showAlert('Please enter a valid user name')
         }
         else{
             let updatedUser = {
@@ -44,7 +44,8 @@ class Profile extends Component {
 
     componentDidMount() {
         let userId = sessionStorage.getItem("loggedInUserId")
-        API.get(userId, "users").then(user => {
+        API.getUserById(userId).then(user => {
+            console.log(user)
             this.setState({
                 firstName: user.firstName,
                 lastName: user.lastName,
@@ -57,6 +58,7 @@ class Profile extends Component {
     render() {
         
         return(
+            <>
            <Row>
             <Col sm="12" md={{ size: 6, offset: 3 }}>
                 <Card>
@@ -89,7 +91,8 @@ class Profile extends Component {
                 </Card>
             </Col>
             </Row>
-           
+           <Dialog ref={(el) => { this.dialog = el }} />
+           </>
         )
     }
 }

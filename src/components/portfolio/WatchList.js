@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 import {Table, Button} from 'reactstrap'
 import API from '../../modules/API.Manager';
 import APIIex from '../../modules/API.IEXManager';
-import BootBox from 'react-bootbox';
-
+import Dialog from 'react-bootstrap-dialog'
 
 
 
@@ -11,7 +11,6 @@ class WatchList extends Component {
     state = {
         watchList: [],
         watchListWithCurrentValue: [],
-        showDeleteConfirm: false,
         selectedWatchListId: 0,
         loggedInUserId: sessionStorage.getItem('loggedInUserId')
     }
@@ -65,22 +64,28 @@ class WatchList extends Component {
     }
     showConfirmBox = (id) => {
         this.setState({
-            showDeleteConfirm: true,
             selectedWatchListId: id
         })
+        this.dialog.show({
+            title: 'Delete Confirmation',
+            body: 'Are you sure you want to delete?',
+            actions: [
+              Dialog.CancelAction(),
+              Dialog.OKAction(() => {this.handleDelete()})
+            ],
+            bsSize: 'small',
+            onHide: (dialog) => {
+              dialog.hide()
+            }
+          })
     }
+
 
     handleDelete = () => {
-        console.log(this.state.selectedWatchListId)
         API.delete(this.state.selectedWatchListId, "watchlists").then(() => this.getData())
-        this.handleClose()
+        this.dialog.showAlert('Item has been deleted from watchlist.')
     }
 
-    handleClose = () => {
-        this.setState({
-            showDeleteConfirm: false
-        })
-    }
     
     componentDidMount(){
          this.getData()
@@ -108,7 +113,7 @@ class WatchList extends Component {
                    {this.state.watchListWithCurrentValue.map(list => {
                        
                        return (<tr  key = {list.id}>
-                           <td>{list.symbol}</td>
+                           <td><Link to={`/portfolio/${list.symbol}`}>{list.symbol}</Link></td>
                            <td>{list.stockName}</td>
                            <td className="text-right">{list.latestPrice}</td>
                            <td className="text-right">{list.change}</td>
@@ -124,12 +129,7 @@ class WatchList extends Component {
                 </tbody>
                 
             </Table>
-            <BootBox 
-                    message="Are you sure you want to delete?"
-                    show={this.state.showDeleteConfirm} 
-                    onYesClick = {this.handleDelete}
-                    onNoClick = {this.handleClose}
-                    onClose = {this.handleClose}/>
+            <Dialog ref={(el) => { this.dialog = el }} />
             </>
             
         )
