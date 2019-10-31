@@ -32,7 +32,7 @@ class ApplicationViews extends Component {
                     return <PortfolioSearch {...props}/>
                 }}/> 
                 <Route exact path='/portfolio/:symbol' render={props => {
-                    return <PortfolioDetail symbol={props.match.params.symbol} {...props}/>
+                    return <PortfolioDetail symbol={props.match.params.symbol}  key={props.match.params.symbol} {...props}/>
                 }}/> 
                  <Route exact path='/portfolio/:investmentId/alternate' render={props => {
                     return <Alternate investmentId={props.match.params.investmentId} {...props}/>

@@ -5,7 +5,7 @@ import API from '../../modules/API.Manager'
 import StockPurchase from './StockPurchase';
 import moment from 'moment'
 import AlternateStock from './AlternateStock'
-
+import {Line} from 'react-chartjs-2';
 class PortfolioDetail extends Component {
     
     state = {
@@ -20,6 +20,7 @@ class PortfolioDetail extends Component {
         isPurchaseModalOpen : false,
         investment:{},
         investmentId:0,
+        chartData: {},
        
     }
 
@@ -59,10 +60,42 @@ class PortfolioDetail extends Component {
             this.setState({
                 investment : data,
             })
-        }).then(()=>{console.log(this.state.investment)})
+        }).then(()=>{console.log(this.state.stockDetails); this.makeChartData()})
             //console.log(this.state.stockDetails.quote.companyName)
         });
     }
+
+    makeChartData () {
+        this.setState({
+            chartData: {
+                labels: this.state.stockDetails.chart.map(c=>c.label),
+                datasets: [
+                    {
+                      label: '30 Days',
+                      fill: true,
+                      lineTension: 0.1,
+                      backgroundColor: 'rgba(75,192,192,0.4)',
+                      borderColor: 'rgba(75,192,192,1)',
+                      borderCapStyle: 'butt',
+                      borderDash: [],
+                      borderDashOffset: 0.0,
+                      borderJoinStyle: 'miter',
+                      pointBorderColor: 'rgba(75,192,192,1)',
+                      pointBackgroundColor: '#fff',
+                      pointBorderWidth: 1,
+                      pointHoverRadius: 5,
+                      pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+                      pointHoverBorderColor: 'rgba(220,220,220,1)',
+                      pointHoverBorderWidth: 2,
+                      pointRadius: 1,
+                      pointHitRadius: 10,
+                      data: this.state.stockDetails.chart.map(c=>c.close)
+                    }
+                  ]
+            }
+        })
+    }
+
     
     render(){
         return (
@@ -97,6 +130,7 @@ class PortfolioDetail extends Component {
                 <Col md="6">
                     
                         <Table className="table-sm">
+                            <tbody>
                             <tr>
                                 <td>Previous Close</td>
                                 <td>{this.state.stockDetails.quote.previousClose}</td>
@@ -113,12 +147,14 @@ class PortfolioDetail extends Component {
                                 <td>Market Cap</td>
                                 <td>{this.state.stockDetails.quote.marketCap}</td>
                             </tr>
+                            </tbody>
                         </Table>
                     
                 </Col>
                 <Col md="6">
                     
                         <Table className="table-sm">
+                        <tbody>
                             <tr>
                                 <td>52 Week Range</td>
                                 <td>{this.state.stockDetails.quote.week52Low} - {this.state.stockDetails.quote.week52High}</td>
@@ -135,12 +171,18 @@ class PortfolioDetail extends Component {
                                 <td>Last Trade Time</td>
                                 <td>{moment(this.state.stockDetails.quote.lastTradeTime).format("lll")}</td>
                             </tr>
+                            </tbody>
                         </Table>
                     
                 </Col>
             </Row>
 
-            
+            <Row className="mt-4">
+                <Col>
+                    <Line data={this.state.chartData} height={50} />
+                </Col>
+            </Row>
+
             <Row className="mt-4">
                 <Col>
                     <div className="float-right p-2">
@@ -175,15 +217,15 @@ class PortfolioDetail extends Component {
                 ):null
             }
             <Row className="mt-4">
-                <Col md-6>
+                <Col md-6="true">
                     <Card className="px-2">
-                        <ul class="list-unstyled">
+                        <ul className="list-unstyled">
                             {this.state.stockDetails.news.map(news => {
-                            return (<li class="media my-2 py-2 border-bottom">
-                            <img src={news.image} class="mr-3"  width="80px" />
-                            <div class="media-body">
+                            return (<li className="media my-2 py-2 border-bottom" key={news.url}>
+                            <img src={news.image} className="mr-3"  width="80px" />
+                            <div className="media-body">
                                 <small>
-                            <a class="mt-0 mb-1" href={news.url} target="_blank">{news.headline}</a>
+                            <a className="mt-0 mb-1" href={news.url} target="_blank">{news.headline}</a>
                             </small>
                             </div>
                         </li>)
@@ -191,12 +233,12 @@ class PortfolioDetail extends Component {
                 </ul>
                 </Card>
                 </Col>
-                <Col md-6>
+                <Col md-6="true">
                 <Card className="px-2">
-                     <ul class="list-unstyled">
+                     <ul className="list-unstyled">
                     
-                    <li class="media mt-2">
-                        <img class="mr-3" src={this.state.stockDetails.logo.url} width="80px" alt="Generic placeholder image" />
+                    <li className="media mt-2">
+                        <img className="mr-3" src={this.state.stockDetails.logo.url} width="80px" alt="Generic placeholder image" />
                         <p>{this.state.stockDetails.company.companyName}<br />
                         CEO: {this.state.stockDetails.company.CEO}</p>
                     </li>

@@ -136,26 +136,91 @@
       "purchaseDate": 1572464960523,
       "userId": "3",
       "id": 13
-    }
-  ],
-  "watchlists": [
-    {
-      "userId": 3,
-      "symbol": "AAPL",
-      "stockName": "Apple, Inc.",
-      "id": 1
     },
     {
-      "userId": 3,
-      "symbol": "SSYS",
-      "stockName": "Stratasys Ltd.",
-      "id": 2
+      "symbol": "AGG",
+      "stockName": "iShares Core U.S. Aggregate Bond ETF",
+      "purchasePrice": 112.71,
+      "purchaseQty": "19.12",
+      "totalPrice": "2155.05",
+      "parentId": 6,
+      "purchaseDate": 1572466730332,
+      "userId": "3",
+      "id": 14
+    },
+    {
+      "symbol": "AAPL",
+      "stockName": "Apple, Inc.",
+      "purchasePrice": 243.26,
+      "purchaseQty": "8.86",
+      "totalPrice": "2155.05",
+      "parentId": 6,
+      "purchaseDate": 1572480519867,
+      "userId": "3",
+      "id": 15
     },
     {
       "userId": 3,
       "symbol": "BABA",
       "stockName": "Alibaba Group Holding Ltd.",
-      "id": 3
+      "purchasePrice": 177.53,
+      "purchaseQty": "2.82",
+      "totalPrice": "500",
+      "purchaseDate": 1572522352708,
+      "parentId": 0,
+      "id": 16
+    },
+    {
+      "userId": 3,
+      "symbol": "AAPL",
+      "stockName": "Apple, Inc.",
+      "purchasePrice": 243.26,
+      "purchaseQty": "2.06",
+      "totalPrice": "500",
+      "purchaseDate": 1572522615500,
+      "parentId": 0,
+      "id": 17
+    },
+    {
+      "userId": 2,
+      "symbol": "AAPL",
+      "stockName": "Apple, Inc.",
+      "purchasePrice": 243.26,
+      "purchaseQty": "2.06",
+      "totalPrice": "500",
+      "purchaseDate": 1572522910764,
+      "parentId": 0,
+      "id": 18
+    },
+    {
+      "userId": 2,
+      "symbol": "MSFT",
+      "stockName": "Microsoft Corp.",
+      "purchasePrice": 144.61,
+      "purchaseQty": "5",
+      "totalPrice": "723.05",
+      "purchaseDate": 1572522946452,
+      "parentId": 0,
+      "id": 19
+    },
+    {
+      "userId": 2,
+      "symbol": "BABA",
+      "stockName": "Alibaba Group Holding Ltd.",
+      "purchasePrice": 177.53,
+      "purchaseQty": "3",
+      "totalPrice": "532.59",
+      "purchaseDate": 1572528356964,
+      "parentId": 0,
+      "id": 20
+    }
+  ],
+  "watchlists": [
+    {
+      "userId": 3,
+      "symbol": "GGG",
+      "stockName": "Graco, Inc.",
+      "id": 1
     }
   ]
 }
