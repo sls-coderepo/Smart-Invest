@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { Row, Col, Card, CardBody} from 'reactstrap'
-import WatchList from '../portfolio/WatchList'
+
 
 class Dashboard extends Component {
     state = {
@@ -35,7 +35,7 @@ class Dashboard extends Component {
             </Card>
             </Col>
         </Row> */}
-        <WatchList />
+        
        
         </>
         )

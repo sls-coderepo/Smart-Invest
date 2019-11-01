@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap'
 import API from '../../modules/API.Manager';
+import Dialog from 'react-bootstrap-dialog'
 
 class Login extends Component {
     state = {
@@ -19,11 +20,11 @@ class Login extends Component {
         evt.preventDefault()
         if(this.state.userName === '')
         {
-           alert('Please enter a valid user name')
+            this.dialog.showAlert('Please enter a valid user name')
         }
         else if(this.state.password === '')
         {
-            alert('Please enter a valid password')
+            this.dialog.showAlert('Please enter a valid password')
         }
         else
         {
@@ -34,7 +35,7 @@ class Login extends Component {
             API.getLoginUser(credentials).then((response) => {
                 if(response.length === 0)
                 {
-                    alert('Invalid login.')
+                    this.dialog.showAlert('Invalid login.')
                 }
                 else{
                     this.props.toggleLogin()
@@ -50,6 +51,7 @@ class Login extends Component {
      render() {
         const closeBtn = <button className="close" onClick={this.props.toggleLogin}>&times;</button>;
         return(
+            <>
             <Form >
                 <Modal  isOpen={this.props.isLoginModalOpen} fade={false} toggle={this.props.toggleLogin} className={this.props.className}>
                     <ModalHeader toggle={this.props.toggleLogin}>Login</ModalHeader>
@@ -70,7 +72,9 @@ class Login extends Component {
                
                 </ModalFooter>
                 </Modal>
-            </Form>  
+            </Form>
+            <Dialog ref={(el) => { this.dialog = el }} />  
+            </>
         )
     } 
 }

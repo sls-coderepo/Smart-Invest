@@ -29,7 +29,7 @@ class PortfolioSearch extends Component {
            /*  APIStock.search(this.state.keyword).then((data) => {
                 this.setState({searchResult: data})
                 })*/
-    } 
+   } 
 
     hasSymbols = ()=>
     {
@@ -61,4 +61,4 @@ class PortfolioSearch extends Component {
     }
 } 
 
-export default PortfolioSearch
+export default PortfolioSearch 

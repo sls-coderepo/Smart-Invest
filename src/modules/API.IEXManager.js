@@ -28,16 +28,7 @@ const APIIex = {
           },
         }).then(data => data.json())
         .then((parsedDate)=> {return parsedDate})
-      },
-      getSearchSymbol:(symbols) => {
-        return fetch(`${remoteURL}?symbols=${symbols}&token=${API_KEY}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }).then(data => data.json())
-        .then((parsedDate)=> {return parsedDate})
-      },
+      }
      
 }
 

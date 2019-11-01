@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap'
 import API from '../../modules/API.Manager'
+import Dialog from 'react-bootstrap-dialog'
 
 class SignUp extends Component {
     state = {
@@ -24,15 +25,15 @@ class SignUp extends Component {
 
         if(this.state.userName === '')
         {
-            alert('Please enter a valid user name')
+            this.dialog.showAlert('Please enter a valid user name')
         }
         else if(this.state.password === '')
         {
-            alert('Please enter a valid password')
+            this.dialog.showAlert('Please enter a valid password')
         }
         else if(this.state.password !== this.state.confirmPassword)
         {
-            alert('Password and Confirm Password did not match')
+            this.dialog.showAlert('Password and Confirm Password did not match')
         }
         else{
             let newUser = {
@@ -54,6 +55,7 @@ class SignUp extends Component {
     render() {
         const closeBtn = <Button className="close" onClick={this.props.toggleSignup}>&times;</Button>
         return(
+            <>
             <Form>
                 <Modal isOpen={this.props.isSignupModalOpen} fade={false} toggle={this.props.toggleSignup} className={this.props.className}>
                     <ModalHeader toggle={this.props.toggleSignUp}>Register</ModalHeader>
@@ -89,8 +91,9 @@ class SignUp extends Component {
                 </Button>
                     </ModalFooter>
                 </Modal>
-              
             </Form> 
+             <Dialog ref={(el) => { this.dialog = el }} />  
+             </>
         )
     }
 }

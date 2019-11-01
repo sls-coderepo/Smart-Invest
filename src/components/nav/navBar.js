@@ -4,6 +4,7 @@ import Login from '../auth/Login'
 import SignUp from '../auth/SignUp'
 import 'bootstrap/dist/css/bootstrap.css';
 import {NavbarToggler, Navbar, NavbarBrand, NavLink, Collapse, Nav, NavItem} from 'reactstrap'
+import './navBar.css'
 
 
 class NavBar extends Component {

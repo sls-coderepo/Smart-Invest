@@ -28,9 +28,9 @@ class ApplicationViews extends Component {
                 <Route exact path='/portfolio' render={props => {
                     return <Portfolio loggedInUserName = {this.props.loggedInUserName} {...props}/>
                 }}/> 
-                <Route exact path='/portfolioSearch' render={props => {
+                {/* <Route exact path='/portfolioSearch' render={props => {
                     return <PortfolioSearch {...props}/>
-                }}/> 
+                }}/>  */}
                 <Route exact path='/portfolio/:symbol' render={props => {
                     return <PortfolioDetail symbol={props.match.params.symbol}  key={props.match.params.symbol} {...props}/>
                 }}/> 
