@@ -3,7 +3,7 @@ import {Alert,Input,InputGroup, InputGroupAddon, Button} from 'reactstrap'
 import APIStock from '../../modules/API.AlphaVintageManager';
 import PortfolioSearchResult from './PortfolioSearchResult';
 import InvestmentResult from './InvestmentResult';
-
+import WatchList from '../portfolio/WatchList'
 class Portfolio extends Component {
     state = {
        keyword: "",
@@ -23,17 +23,7 @@ class Portfolio extends Component {
                             console.log(data)
                             })
         } 
-       // this.props.history.push(`/PortfolioSearch?keyword=${this.state.keyword}`)
-    //}
-     
-    /* searchStock = () => {
-        return (<Redirect to={{
-            pathname:"/PortfolioSearch",
-            state: this.state.keyword
-        }}/>)
-        
-     } */
-
+       
     hasSymbols = ()=>
     {
         if(this.state.searchResult.length > 0)
@@ -60,8 +50,9 @@ class Portfolio extends Component {
         
         {this.hasSymbols() ? 
             <PortfolioSearchResult searchResult = {this.state.searchResult} {...this.props} />
-            :<InvestmentResult 
+            :<><InvestmentResult 
             {...this.props}/>
+            <WatchList /></>
         }
         
         </>

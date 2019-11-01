@@ -19,7 +19,7 @@ class StockPurchase extends Component {
         await this.setState(stateToChange)
             this.setState(
                 {
-                    totalPurchase: (parseFloat(this.state.purchaseQty) * this.props.quote.latestPrice).toFixed(2)
+                    totalPurchase: (parseFloat(this.state.purchaseQty) * this.props.quote.latestPrice).toFixed(5)
                 }
             )
         
@@ -32,7 +32,7 @@ class StockPurchase extends Component {
          await this.setState(stateToChange)
             this.setState(
                 {
-                    purchaseQty: (parseFloat(this.state.totalPurchase) / this.props.quote.latestPrice).toFixed(2)
+                    purchaseQty: (parseFloat(this.state.totalPurchase) / this.props.quote.latestPrice).toFixed(5)
                 }
             )
       }

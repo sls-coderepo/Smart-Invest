@@ -56,13 +56,13 @@ class PortfolioDetail extends Component {
             this.setState({
                 stockDetails: data
             })
-         API.getInvestmentBySymbol(this.props.symbol, this.state.loggedInUserId).then(data => {
-            this.setState({
-                investment : data,
-            })
-        }).then(()=>{console.log(this.state.stockDetails); this.makeChartData()})
-            //console.log(this.state.stockDetails.quote.companyName)
-        });
+
+            API.getInvestmentBySymbol(this.props.symbol, this.state.loggedInUserId).then(data => {
+                this.setState({
+                    investment : data,
+                })
+                })
+        }).then(() => {this.makeChartData()});
     }
 
     makeChartData () {

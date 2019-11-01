@@ -34,10 +34,6 @@ class Alternate extends Component {
                 searchResult : data
             })
             })
-            //.then(console.log(this.state.searchResult))
-           /*  APIStock.search(this.state.keyword).then((data) => {
-                this.setState({searchResult: data})
-                })*/
     } 
 
     handleAddAlternate = (symbol) =>
@@ -48,7 +44,7 @@ class Alternate extends Component {
                 symbol: data.symbol,
                 stockName: data.companyName,
                 purchasePrice: data.latestPrice,
-                purchaseQty: (this.state.investment.totalPrice/data.latestPrice).toFixed(2),
+                purchaseQty: (this.state.investment.totalPrice/data.latestPrice).toFixed(5),
                 totalPrice: this.state.investment.totalPrice,
                 parentId: this.state.investment.id,
                 purchaseDate: Date.now(),
@@ -84,7 +80,12 @@ class Alternate extends Component {
             <InputGroup>
             <Input type="text" className="searchBox" id="keyword" 
                                                      onChange={this.handleFieldChange} 
-                                                     value={this.state.keyword}></Input>
+                                                     onKeyPress={(event) => {
+                                                         if(event.key === "Enter") {
+                                                             this.searchStock(event)
+                                                         }
+                                                     }}
+                                                     /* value={this.state.keyword} */></Input>
             <InputGroupAddon addonType="append"><Button onClick={this.searchStock}>Search</Button></InputGroupAddon>
         </InputGroup>
         </Alert>

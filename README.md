@@ -6,11 +6,15 @@
 
 ## Name of Project: Smart Invest
 
-Smart Invest is a stock investment simulator for beginner investors to learn stock selection based on their prediction of the stock market. It allows user to add alternate routes on the investment to tract their predictions. It also allows user to add watch list to track current stock prices for selected symbols.
+Smart Invest is a stock investment simulator for beginner investors to learn stock selection based on their prediction of the stock market. It allows user to add alternate routes on the investment to track their predictions. It also allows user to add watch list to track current stock prices for selected symbols.
 
-Smart Invest Application is going to be written in React, using ReactStrap, BootStrap, canvasjs.
+Smart Invest Application is going to be written in React, using ReactStrap, BootStrap, Chartjs.
 
-## Stock API Provider:  https://www.alphavantage.co
+## Stock API Provider:  https://www.alphavantage.co 
+    Alpha Vintage API is used for symbol search.
+## Stock API Provider:  https://iexcloud.io
+    IEX Cloud API is used to get current Quote, News, Chart Data, Company logo and Company Info.
+
 ## UI/UX Prototype: https://xd.adobe.com/view/3b4924e2-28cf-4889-6f02-df2c475a7931-4d78/
 
 ## Initial ERD

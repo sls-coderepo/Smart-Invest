@@ -29,12 +29,7 @@ class WatchList extends Component {
                 watchList : data
             })
         }).then(() => {
-            let symbolArray = []
-            this.state.watchList.forEach((item) =>
-                {
-                    symbolArray.push(item.symbol)
-                }
-            )
+            let symbolArray = this.state.watchList.map(a=> a.symbol);
             if(symbolArray.length > 0)
             {
                 const symbols= symbolArray.join();

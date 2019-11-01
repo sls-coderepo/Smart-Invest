@@ -41,15 +41,11 @@ class InvestmentResult extends Component {
                 investments: data
             })
         }).then(data => {
-            let symbolArray = []
-            this.state.investments.forEach((item) =>
-                {
-                    symbolArray.push(item.symbol)
-                }
-            )
+            let symbolArray = this.state.investments.map(a=> a.symbol);
+
             if(symbolArray.length > 0)
             {
-                const symbols = symbolArray.join();
+                const symbols = symbolArray.join(); //making comma separated symbols to pass into API
                 this.getLatestQuote(symbols).then( data => {
                     this.state.investments.forEach((item) =>
                     {
@@ -70,7 +66,8 @@ class InvestmentResult extends Component {
                 )
                 }).then(() => Promise.all(stockInvestmentList)).then((values) => 
                 {
-                    this.setState({
+                        this.setState({
+                        
                         investmentsWithCurrentValueList:values,
                         chartData: {
                             labels: symbolArray,
@@ -86,7 +83,6 @@ class InvestmentResult extends Component {
             }
         })
     }
-
 
 
     componentDidMount(){
@@ -137,7 +133,7 @@ class InvestmentResult extends Component {
                     options={{
                         legend: {
                             display: true,
-                            position: "bottom"
+                            position: "right"
                         }
                     }}
                 />
