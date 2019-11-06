@@ -51,7 +51,7 @@ import ApplicationViews from './ApplicationViews';
                   setUser = {this.setUser}
                   clearUser = {this.clearUser}
                   />
-            <div className="container pt-5">
+            <div className="container pt-5" style={{"min-height":"780px"}}>
               <ApplicationViews loggedInUserId={this.state.loggedInUserId}/>
             </div>
             <div className="bg-secondary text-center mt-4 p-3">

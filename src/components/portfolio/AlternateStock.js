@@ -104,7 +104,7 @@ class AlternateStock extends Component {
                            <td className="text-right"><NumberFormat value={alternate.totalPrice} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>
                            <td className="text-right"><NumberFormat value={alternate.latestPrice} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>
                            <td className="text-right"><NumberFormat value={alternate.totalAmount} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>   
-                           <td className="text-right"><NumberFormat value={alternate.change} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>                          
+                           <td className="text-right" style={{color: alternate.change > 0 ? "green" : "red"}}><NumberFormat value={alternate.change} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>                          
                            <td className="text-right">{moment(alternate.purchaseDate).format("lll")}</td>
                        </tr>)
                    })}

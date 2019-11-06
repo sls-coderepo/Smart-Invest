@@ -6,6 +6,7 @@ import StockPurchase from './StockPurchase';
 import moment from 'moment'
 import AlternateStock from './AlternateStock'
 import {Line} from 'react-chartjs-2';
+import NumberFormat from 'react-number-format';
 class PortfolioDetail extends Component {
     
     state = {
@@ -21,6 +22,8 @@ class PortfolioDetail extends Component {
         investment:{},
         investmentId:0,
         chartData: {},
+        totalToday:0,
+        totalGain:0,
        
     }
 
@@ -61,8 +64,19 @@ class PortfolioDetail extends Component {
                 this.setState({
                     investment : data,
                 })
-                })
-        }).then(() => {this.makeChartData()});
+                }).then(()=>this.calculateTotal())
+        }).then(() => {this.makeChartData() });
+    }
+
+    calculateTotal () {
+        if(this.state.investment.length > 0)
+        {
+            this.setState({
+            totalToday : (parseFloat(this.state.stockDetails.quote.latestPrice)*parseFloat(this.state.investment[0].purchaseQty)).toFixed(2),
+            totalGain: ((parseFloat(this.state.stockDetails.quote.latestPrice)*parseFloat(this.state.investment[0].purchaseQty)) - this.state.investment[0].totalPrice).toFixed(2)
+        })
+        }
+        
     }
 
     makeChartData () {
@@ -109,18 +123,20 @@ class PortfolioDetail extends Component {
                 <Col md="2">
                     <table>
                         <tbody>
-                        <tr><td>{this.state.stockDetails.quote.change}</td></tr>
-                        <tr><td>{this.state.stockDetails.quote.changePercent}%</td></tr>
+                        <tr><td style={{color: this.state.stockDetails.quote.change > 0 ? "green" : "red"}}>{this.state.stockDetails.quote.change}</td></tr>
+                        <tr><td style={{color: this.state.stockDetails.quote.change > 0 ? "green" : "red"}}>{this.state.stockDetails.quote.changePercent}%</td></tr>
                         </tbody>
                     </table>
                 </Col>
                 <Col md="3">
+
                 {
+                   
                     (this.state.investment.length > 0) ?
                     ( <>
-                        <h3> ${(parseFloat(this.state.stockDetails.quote.latestPrice)*parseFloat(this.state.investment[0].purchaseQty)).toFixed(2)}</h3>
+                        <h3 style={{color: this.state.totalGain > 0 ? "green" : "red"}}> ${this.state.totalToday}</h3>
                         
-                        <small>${this.state.investment[0].totalPrice} ({(parseFloat(this.state.stockDetails.quote.latestPrice)*parseFloat(this.state.investment[0].purchaseQty) - this.state.investment[0].totalPrice).toFixed(2)})</small>
+                        <small>${this.state.investment[0].totalPrice} ( <span style={{color: this.state.totalGain > 0 ? "green" : "red"}}>{this.state.totalGain}</span> )</small>
                     </>
                     ):null
                 }
@@ -157,7 +173,7 @@ class PortfolioDetail extends Component {
                         <tbody>
                             <tr>
                                 <td>52 Week Range</td>
-                                <td>{this.state.stockDetails.quote.week52Low} - {this.state.stockDetails.quote.week52High}</td>
+                                <td>{this.state.stockDetails.quote.week52Low} - {this.state.stockDetails.quote.week52High}  ({(this.state.stockDetails.quote.week52Low - this.state.stockDetails.quote.week52High).toFixed(2)})</td>
                             </tr>
                             <tr>
                                 <td>YTD Change</td>
