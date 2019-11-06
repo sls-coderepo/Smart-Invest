@@ -36,7 +36,7 @@ class Profile extends Component {
                
             }
             API.updatePartial(updatedUser, "users").then((response) => {
-                    this.props.history.push('/')
+                    this.props.history.push('/portfolio')
             })
         }
 
@@ -44,9 +44,11 @@ class Profile extends Component {
 
     componentDidMount() {
         let userId = sessionStorage.getItem("loggedInUserId")
+        
         API.getUserById(userId).then(user => {
             console.log(user)
             this.setState({
+                
                 firstName: user.firstName,
                 lastName: user.lastName,
                 emailAddress: user.emailAddress,

@@ -34,10 +34,79 @@
     }
   ],
   "investments": [
-    
-    
+    {
+      "userId": 3,
+      "symbol": "AAPL",
+      "stockName": "Apple, Inc.",
+      "purchasePrice": 248.76,
+      "purchaseQty": "4.01994",
+      "totalPrice": "1000",
+      "purchaseDate": 1572583726026,
+      "parentId": 0,
+      "id": 1
+    },
+    {
+      "userId": 3,
+      "symbol": "BABA",
+      "stockName": "Alibaba Group Holding Ltd.",
+      "purchasePrice": 176.67,
+      "purchaseQty": "8.49041",
+      "totalPrice": "1500",
+      "purchaseDate": 1572583746763,
+      "parentId": 0,
+      "id": 2
+    },
+    {
+      "userId": 3,
+      "symbol": "DDS",
+      "stockName": "Dillard's, Inc.",
+      "purchasePrice": 68.98,
+      "purchaseQty": "10",
+      "totalPrice": "689.80000",
+      "purchaseDate": 1572583771734,
+      "parentId": 0,
+      "id": 3
+    },
+    {
+      "symbol": "FB",
+      "stockName": "Facebook, Inc.",
+      "purchasePrice": 191.65,
+      "purchaseQty": "5.21785",
+      "totalPrice": "1000",
+      "parentId": 1,
+      "purchaseDate": 1572583925522,
+      "userId": "3",
+      "id": 4
+    },
+    {
+      "userId": 3,
+      "symbol": "AMZN",
+      "stockName": "Amazon.com, Inc.",
+      "purchasePrice": 1789.92,
+      "purchaseQty": "5",
+      "totalPrice": "8949.60000",
+      "purchaseDate": 1572640644826,
+      "parentId": 0,
+      "id": 5
+    },
+    {
+      "symbol": "FB",
+      "stockName": "Facebook, Inc.",
+      "purchasePrice": 193.62,
+      "purchaseQty": "46.22250",
+      "totalPrice": "8949.60000",
+      "parentId": 5,
+      "purchaseDate": 1572640663662,
+      "userId": "3",
+      "id": 6
+    }
   ],
   "watchlists": [
-    
+    {
+      "userId": 3,
+      "symbol": "FB",
+      "stockName": "Facebook, Inc.",
+      "id": 2
+    }
   ]
 }
