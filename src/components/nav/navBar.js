@@ -36,7 +36,7 @@ class NavBar extends Component {
   
     return (
       <>
-      <Navbar color="light" light expand="md">
+      <Navbar expand="md">
           <NavbarBrand href="/">SMART INVEST</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.isOpen} navbar>
@@ -73,6 +73,7 @@ class NavBar extends Component {
           </Nav>
           </Collapse>
       </Navbar>
+     
       <Login isLoginModalOpen = {this.state.isLoginModalOpen}
              toggleLogin = {this.toggleLogin}
              setUser = {this.props.setUser}

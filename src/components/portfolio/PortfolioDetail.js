@@ -39,7 +39,7 @@ class PortfolioDetail extends Component {
 
         }
        API.post(stockWatch, "watchlists").then(() => {
-                this.props.history.push('/')
+                this.props.history.push('/portfolio')
         })
     }
 
