@@ -54,7 +54,7 @@ import ApplicationViews from './ApplicationViews';
             <div className="container pt-5">
               <ApplicationViews loggedInUserId={this.state.loggedInUserId}/>
             </div>
-            <div className="bg-light text-center mt-4 p-3">
+            <div className="bg-secondary text-center mt-4 p-3">
                 <p>&copy; Smart Invest</p>
             </div>
           </>

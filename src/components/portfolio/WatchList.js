@@ -42,6 +42,7 @@ class WatchList extends Component {
                                             id:item.id,
                                             symbol:item.symbol,
                                             stockName:item.stockName,
+                                            openPrice:data[item.symbol].quote.previousClose,
                                             latestPrice:data[item.symbol].quote.latestPrice,
                                             change:data[item.symbol].quote.change,
                                             changePercent:data[item.symbol].quote.changePercent,
@@ -97,7 +98,8 @@ class WatchList extends Component {
                 <tr>
                     <th>Symbol</th>
                     <th>Name</th>
-                    <th className="text-right">Price</th>
+                    <th className="text-right">Open Price</th>
+                    <th className="text-right">Latest Price</th>
                     <th className="text-right">Change</th>
                     <th className="text-right">Change %</th>
                     <th></th>
@@ -110,9 +112,10 @@ class WatchList extends Component {
                        return (<tr  key = {list.id}>
                            <td><Link to={`/portfolio/${list.symbol}`}>{list.symbol}</Link></td>
                            <td>{list.stockName}</td>
+                           <td className="text-right">{list.openPrice}</td>
                            <td className="text-right">{list.latestPrice}</td>
-                           <td className="text-right">{list.change}</td>
-                           <td className="text-right">{list.changePercent}%</td>
+                           <td className="text-right" style={{color: list.change > 0 ? "green" : "red"}}>{list.change}</td>
+                           <td className="text-right" style={{color: list.changePercent > 0 ? "green" : "red"}}>{list.changePercent}%</td>
                            <td className="text-right">
                            <Button type='button' color="secondary" size="sm" className="mx-1"
                                     onClick={() => this.showConfirmBox(list.id)}>

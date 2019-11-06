@@ -15,8 +15,13 @@ class InvestmentResult extends Component {
         investmentsWithCurrentValueList: [],
         loggedInUserId: sessionStorage.getItem('loggedInUserId'),
         chartData: {},
+        totalPurchaseAmount: 0.00,
+        totalCurrentAmount:0.00,
+        change: 0.00
+        
     }
 
+    
     getLatestQuote = (symbols) =>
     {
          return APIIex.getMarketBatch(symbols).then(data => {
@@ -57,6 +62,7 @@ class InvestmentResult extends Component {
                                             purchasePrice:item.purchasePrice,
                                             purchaseQty:item.purchaseQty,
                                             totalPrice:item.totalPrice,
+                                            change:data[item.symbol].quote.latestPrice*item.purchaseQty -  item.totalPrice ,
                                             purchaseDate:item.purchaseDate,
                                             latestPrice:data[item.symbol].quote.latestPrice,
                                             totalAmount:data[item.symbol].quote.latestPrice*item.purchaseQty,
@@ -67,7 +73,8 @@ class InvestmentResult extends Component {
                 }).then(() => Promise.all(stockInvestmentList)).then((values) => 
                 {
                         this.setState({
-                        
+                        totalPurchaseAmount: values.map(i=>parseFloat(i.totalPrice)).reduce((a,b)=> a+b,0),
+                        totalCurrentAmount: values.map(i=>parseFloat(i.totalAmount)).reduce((a,b)=> a+b,0),
                         investmentsWithCurrentValueList:values,
                         chartData: {
                             labels: symbolArray,
@@ -79,18 +86,18 @@ class InvestmentResult extends Component {
                         }
                     })
                 }                       
-                )
+                ).then(()=>{this.setState({change: this.state.totalCurrentAmount - this.state.totalPurchaseAmount})})
             }
         })
     }
 
 
-    componentDidMount(){
+    componentDidMount  () {
         this.getData()
-        
     }
     
     render(){
+      
         return (
             <>
             <h4>Portfolio</h4>
@@ -104,6 +111,7 @@ class InvestmentResult extends Component {
                     <th className="text-right">Purchase Amount</th>
                     <th className="text-right">Current Rate</th>
                     <th className="text-right">Current Amount</th>
+                    <th className="text-right">Change</th>
                     <th className="text-right">Purchase Date</th>
                 </tr>
                 </thead>
@@ -116,16 +124,30 @@ class InvestmentResult extends Component {
                            <td className="text-right"><NumberFormat value={investment.purchaseQty} displayType={'text'} thousandSeparator={true} decimalScale={2}/></td>
                            <td className="text-right"><NumberFormat value={investment.totalPrice} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>
                            <td className="text-right"><NumberFormat value={investment.latestPrice} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>
-                           <td className="text-right"><NumberFormat value={investment.totalAmount} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>                           
+                           <td className="text-right"><NumberFormat value={investment.totalAmount} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>    
+                           <td className="text-right" style={{color: investment.change > 0 ? "green" : "red"}}><NumberFormat value={investment.change} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>                                           
                            <td className="text-right">{moment(investment.purchaseDate).format("lll")}</td>
                        </tr>)
                    })}
                 </tbody>
             </Table>
 
-            <Row mt-4="true">
+            <Row mt-5="true">
                 <Col md-6="true">
-                    
+                    <Table striped>
+                        <tr>
+                            <td><b>Total Purchase Amount</b></td>
+                            <td className="text-right"><b><NumberFormat value={this.state.totalPurchaseAmount} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></b></td>
+                        </tr>
+                        <tr>
+                            <td><b>Total Current Amount</b></td>
+                            <td className="text-right"><b><NumberFormat value={this.state.totalCurrentAmount} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></b></td>
+                        </tr>
+                        <tr>
+                            <td><b>Total Changes</b></td>
+                            <td className="text-right" style={{color: this.state.change > 0 ? "green" : "red"}}><b><NumberFormat value={this.state.change} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></b></td>
+                        </tr>
+                    </Table>
                 </Col>
                 <Col md-6="true">
                 <Pie
