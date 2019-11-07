@@ -12,7 +12,7 @@ class Dashboard extends Component {
         return (
     <>
       <Jumbotron>
-        <h1 className="display-3">Invest With No Fear!</h1>
+        <h1 className="display-3">Invest With No Fears!</h1>
         <p className="lead">Smart Invest lets you play with the numbers and adjust based on your predictions. </p>
         <hr className="my-2" />
         <p>Learn how to be smart with Smart Invest, Grow your savings for future.</p>
@@ -21,7 +21,7 @@ class Dashboard extends Component {
       
     <CardDeck>
         <Card>
-                <CardImg top width="100%" src="/images/analyze.jpg" alt="" />
+                <CardImg top width="100%" src="/images/analyze_1.jpg" alt="" />
             <CardBody>
                 <CardTitle><h4>Analyze</h4></CardTitle>
                 <CardText>Analyze data from trusted real time stock market.</CardText>
@@ -47,7 +47,7 @@ class Dashboard extends Component {
                 <CardText>Watch it gorw day by day.</CardText>
             </CardBody>
             <CardFooter>
-                <Button  color="secondary">Learn More</Button>
+                <Button color="secondary">Learn More</Button>
             </CardFooter>
         </Card>
     </CardDeck>

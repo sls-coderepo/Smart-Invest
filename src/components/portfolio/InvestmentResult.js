@@ -62,7 +62,7 @@ class InvestmentResult extends Component {
                                             purchasePrice:item.purchasePrice,
                                             purchaseQty:item.purchaseQty,
                                             totalPrice:item.totalPrice,
-                                            change:data[item.symbol].quote.latestPrice*item.purchaseQty -  item.totalPrice ,
+                                            change:(data[item.symbol].quote.latestPrice*item.purchaseQty).toFixed(2) -  item.totalPrice ,
                                             purchaseDate:item.purchaseDate,
                                             latestPrice:data[item.symbol].quote.latestPrice,
                                             totalAmount:data[item.symbol].quote.latestPrice*item.purchaseQty,
@@ -86,7 +86,7 @@ class InvestmentResult extends Component {
                         }
                     })
                 }                       
-                ).then(()=>{this.setState({change: this.state.totalCurrentAmount - this.state.totalPurchaseAmount})})
+                ).then(()=>{this.setState({change: this.state.totalCurrentAmount.toFixed(2) - this.state.totalPurchaseAmount.toFixed(2)})})
             }
         })
     }
@@ -125,13 +125,13 @@ class InvestmentResult extends Component {
                            <td className="text-right"><NumberFormat value={investment.totalPrice} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>
                            <td className="text-right"><NumberFormat value={investment.latestPrice} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>
                            <td className="text-right"><NumberFormat value={investment.totalAmount} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>    
-                           <td className="text-right" style={{color: investment.change > 0 ? "green" : "red"}}><NumberFormat value={investment.change} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>                                           
+                           <td className="text-right" style={{color: investment.change >= 0 ? "green" : "red"}}><NumberFormat value={investment.change} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>                                           
                            <td className="text-right">{moment(investment.purchaseDate).format("lll")}</td>
                        </tr>)
                    })}
                 </tbody>
             </Table>
-
+            <div className="mt-5">
             <Row mt-5="true">
                 <Col md-6="true">
                     <Table striped>
@@ -155,12 +155,13 @@ class InvestmentResult extends Component {
                     options={{
                         legend: {
                             display: true,
-                            position: "right"
+                            position: "bottom"
                         }
                     }}
                 />
                 </Col>
             </Row>
+            </div>
             
             </>
         )

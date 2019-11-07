@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Row, Col, Button, Card, Table} from 'reactstrap'
+import {Row, Col, Button, Card, CardDeck, Table} from 'reactstrap'
 import APIIex from '../../modules/API.IEXManager';
 import API from '../../modules/API.Manager'
 import StockPurchase from './StockPurchase';
@@ -123,24 +123,42 @@ class PortfolioDetail extends Component {
                 <Col md="2">
                     <table>
                         <tbody>
-                        <tr><td style={{color: this.state.stockDetails.quote.change > 0 ? "green" : "red"}}>{this.state.stockDetails.quote.change}</td></tr>
-                        <tr><td style={{color: this.state.stockDetails.quote.change > 0 ? "green" : "red"}}>{this.state.stockDetails.quote.changePercent}%</td></tr>
+                        <tr><td style={{color: this.state.stockDetails.quote.change >= 0 ? "green" : "red"}}>{this.state.stockDetails.quote.change}</td></tr>
+                        <tr><td style={{color: this.state.stockDetails.quote.change >= 0 ? "green" : "red"}}>{this.state.stockDetails.quote.changePercent}%</td></tr>
                         </tbody>
                     </table>
                 </Col>
                 <Col md="3">
 
                 {
-                   
-                    (this.state.investment.length > 0) ?
+                   (this.state.investment.length > 0) ?
                     ( <>
-                        <h3 style={{color: this.state.totalGain > 0 ? "green" : "red"}}> ${this.state.totalToday}</h3>
-                        
-                        <small>${this.state.investment[0].totalPrice} ( <span style={{color: this.state.totalGain > 0 ? "green" : "red"}}>{this.state.totalGain}</span> )</small>
+                        <span style={{"font-size":"30px"}}>
+                            <b style={{color: this.state.totalGain >= 0 ? "green" : "red"}}> ${this.state.totalToday}
+                            {
+                                (this.state.totalGain >= 0)?
+                                (
+                                    <img width="50px" src="../images/green_arrow.png" alt="Green Arrow"/>
+                                )
+                                :
+                                (
+                                    <img width="50px" src="../images/red_arrow.png" alt="Red Arrow"/>
+                                )
+                            }
+                            </b>
+                        </span>
+                        <p>
+                            <small>
+                            <NumberFormat value={this.state.investment[0].totalPrice } displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/>{" "}
+                             ( <span style={{color: this.state.totalGain >= 0 ? "green" : "red"}}>{this.state.totalGain}</span> )</small>
+                        </p>
                     </>
                     ):null
                 }
+                 
                 </Col>
+                  
+                
             </Row>
             <Row className="mt-4">
                 <Col md="6">
@@ -232,9 +250,8 @@ class PortfolioDetail extends Component {
                         </>
                 ):null
             }
-            <Row className="mt-4">
-                <Col md-6="true">
-                    <Card className="px-2">
+            <CardDeck className="mt-4">
+                <Card className="px-2">
                         <ul className="list-unstyled">
                             {this.state.stockDetails.news.map(news => {
                             return (<li className="media my-2 py-2 border-bottom" key={news.url}>
@@ -246,10 +263,8 @@ class PortfolioDetail extends Component {
                             </div>
                         </li>)
                         })}
-                </ul>
+                     </ul>
                 </Card>
-                </Col>
-                <Col md-6="true">
                 <Card className="px-2">
                      <ul className="list-unstyled">
                     
@@ -275,8 +290,7 @@ class PortfolioDetail extends Component {
                      </small>
                       
                 </Card>
-                </Col>
-            </Row>
+            </CardDeck>
                
             
             <StockPurchase isPurchaseModalOpen = {this.state.isPurchaseModalOpen}

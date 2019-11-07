@@ -81,7 +81,7 @@ class Profile extends Component {
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="userName">User Name</Label>
-                    <Input type="text" required onChange={this.handleFieldChange} value={this.state.userName} id="userName"></Input>
+                    <Input  disabled="disabled" type="text" required onChange={this.handleFieldChange} value={this.state.userName} id="userName"></Input>
                 </FormGroup>
                 <FormGroup>
                 <Button onClick={this.handleUpdate}>
