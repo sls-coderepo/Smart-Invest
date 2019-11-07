@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import NavBar from './components/nav/navBar'
 import ApplicationViews from './ApplicationViews';
+import './smartInvest.css';
 
 
   class SmartInvest extends Component {

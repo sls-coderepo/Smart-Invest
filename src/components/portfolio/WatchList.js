@@ -114,8 +114,8 @@ class WatchList extends Component {
                            <td>{list.stockName}</td>
                            <td className="text-right">{list.openPrice}</td>
                            <td className="text-right">{list.latestPrice}</td>
-                           <td className="text-right" style={{color: list.change > 0 ? "green" : "red"}}>{list.change}</td>
-                           <td className="text-right" style={{color: list.changePercent > 0 ? "green" : "red"}}>{list.changePercent}%</td>
+                           <td className="text-right" style={{color: list.change > 0 ? "green" : list.change < 0 ? "red" : "black"}}>{list.change}</td>
+                           <td className="text-right" style={{color: list.changePercent > 0 ? "green" : list.changePercent < 0 ? "red" : "black"}}>{list.changePercent}%</td>
                            <td className="text-right">
                            <Button type='button' color="secondary" size="sm" className="mx-1"
                                     onClick={() => this.showConfirmBox(list.id)}>

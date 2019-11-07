@@ -29,14 +29,14 @@ class InvestmentResult extends Component {
         })
     }
 
-    getRandomColor = () => {
+    /* getRandomColor = () => {
         var letters = '0123456789ABCDEF'.split('');
         var color = '#';
         for (var i = 0; i < 6; i++ ) {
             color += letters[Math.floor(Math.random() * 16)];
         }
         return color;
-    }
+    } */
 
        
     getData = () => {
@@ -80,8 +80,8 @@ class InvestmentResult extends Component {
                             labels: symbolArray,
                             datasets: [{
                                 data: values.map(s=>s.totalPrice),
-                                backgroundColor: values.map(s=>this.getRandomColor())
-                                //backgroundColor:["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9", "#c45850","#d34"]
+                              /*   backgroundColor: values.map(s=>this.getRandomColor()) */
+                                backgroundColor:[ "#c45850","#82387c","#178082","#3e95cd", "#8e5ea2","#3cba9f","#c29f95",]
                             }]
                         }
                     })
@@ -125,7 +125,7 @@ class InvestmentResult extends Component {
                            <td className="text-right"><NumberFormat value={investment.totalPrice} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>
                            <td className="text-right"><NumberFormat value={investment.latestPrice} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>
                            <td className="text-right"><NumberFormat value={investment.totalAmount} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>    
-                           <td className="text-right" style={{color: investment.change >= 0 ? "green" : "red"}}><NumberFormat value={investment.change} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>                                           
+                           <td className="text-right" style={{color: investment.change > 0 ? "green" : investment.change < 0 ? "red" : "black"}}><NumberFormat value={investment.change} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>                                           
                            <td className="text-right">{moment(investment.purchaseDate).format("lll")}</td>
                        </tr>)
                    })}
@@ -145,7 +145,7 @@ class InvestmentResult extends Component {
                         </tr>
                         <tr>
                             <td><b>Total Changes</b></td>
-                            <td className="text-right" style={{color: this.state.change > 0 ? "green" : "red"}}><b><NumberFormat value={this.state.change} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></b></td>
+                            <td className="text-right" style={{color: this.state.change > 0 ? "green" : this.state.change < 0 ? "red" : "black"}}><b><NumberFormat value={this.state.change} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></b></td>
                         </tr>
                     </Table>
                 </Col>

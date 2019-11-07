@@ -61,8 +61,8 @@
       "symbol": "AMZN",
       "stockName": "Amazon.com, Inc.",
       "purchasePrice": 1789.92,
-      "purchaseQty": "5",
-      "totalPrice": "8949.60000",
+      "purchaseQty": "2",
+      "totalPrice": "3579.84000",
       "purchaseDate": 1572640644826,
       "parentId": 0,
       "id": 5
@@ -77,6 +77,28 @@
       "purchaseDate": 1572640663662,
       "userId": "3",
       "id": 6
+    },
+    {
+      "userId": 3,
+      "symbol": "FB",
+      "stockName": "Facebook, Inc.",
+      "purchasePrice": 191.55,
+      "purchaseQty": "20.88228",
+      "totalPrice": "4000",
+      "purchaseDate": 1573098739918,
+      "parentId": 0,
+      "id": 7
+    },
+    {
+      "symbol": "ACT",
+      "stockName": "AdvisorShares Vice ETF",
+      "purchasePrice": 24.2,
+      "purchaseQty": "165.28926",
+      "totalPrice": "4000",
+      "parentId": 7,
+      "purchaseDate": 1573099691948,
+      "userId": "3",
+      "id": 8
     }
   ],
   "watchlists": [
