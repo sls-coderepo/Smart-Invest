@@ -37,7 +37,8 @@ class NavBar extends Component {
     return (
       <>
       <Navbar expand="md">
-          <NavbarBrand href="/">SMART INVEST</NavbarBrand>
+          <NavLink href="/"><img src={"../images/smart-invest.png"} width="220px" className="App-logo" alt="logo" /></NavLink>
+          {/* <NavbarBrand href="/">SMART INVEST</NavbarBrand> */}
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.isOpen} navbar>
           <Nav className="ml-auto" navbar>
