@@ -36,7 +36,7 @@ class NavBar extends Component {
   
     return (
       <>
-      <Navbar expand="md">
+      <Navbar className="mb-5"expand="md" fixed="top">
           <NavLink href="/"><img src={"../images/smart-invest.png"} width="220px" className="App-logo" alt="logo" /></NavLink>
           {/* <NavbarBrand href="/">SMART INVEST</NavbarBrand> */}
           <NavbarToggler onClick={this.toggle} />

@@ -134,15 +134,19 @@ class PortfolioDetail extends Component {
                    (this.state.investment.length > 0) ?
                     ( <>
                         <span style={{"font-size":"30px"}}>
-                            <b style={{color: this.state.totalGain >= 0 ? "green" : "red"}}> ${this.state.totalToday}
+                            <b style={{color: this.state.totalGain > 0 ? "green" : this.state.totalGain < 0 ? "red" : "black"}}> ${this.state.totalToday}
                             {
-                                (this.state.totalGain >= 0)?
+                                (this.state.totalGain > 0)?
                                 (
                                     <img width="50px" src="../images/green_arrow.png" alt="Green Arrow"/>
                                 )
-                                :
+                                : (this.state.totalGain < 0)?
                                 (
                                     <img width="50px" src="../images/red_arrow.png" alt="Red Arrow"/>
+                                )
+                                :
+                                (
+                                    <br />
                                 )
                             }
                             </b>
