@@ -4,6 +4,8 @@ import {Table, Button} from 'reactstrap'
 import API from '../../modules/API.Manager';
 import APIIex from '../../modules/API.IEXManager';
 import Dialog from 'react-bootstrap-dialog'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faTrashAlt} from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -117,9 +119,9 @@ class WatchList extends Component {
                            <td className="text-right" style={{color: list.change > 0 ? "green" : list.change < 0 ? "red" : "black"}}>{list.change}</td>
                            <td className="text-right" style={{color: list.changePercent > 0 ? "green" : list.changePercent < 0 ? "red" : "black"}}>{list.changePercent}%</td>
                            <td className="text-right">
-                           <Button type='button' color="secondary" size="sm" className="mx-1"
+                           <Button type='button' color="secondary" size="sm" color="danger" className="mx-1"
                                     onClick={() => this.showConfirmBox(list.id)}>
-						            Delete
+						            <FontAwesomeIcon icon={faTrashAlt}/>
 				        </Button>
                            </td> 
                        </tr>)

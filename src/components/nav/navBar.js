@@ -46,7 +46,7 @@ class NavBar extends Component {
             (
               <>
               <NavItem>
-                <NavLink>Welcome {this.props.loggedInUserName}!</NavLink>
+                <NavLink href="/">Welcome {this.props.loggedInUserName}!</NavLink>
               </NavItem> 
               <NavItem>
                 <NavLink href="/portfolio" >Portfolio</NavLink>

@@ -227,7 +227,7 @@ class PortfolioDetail extends Component {
                         {
                             (this.state.investment.length > 0) ?
                             (   <>
-                                <Button className="ml-2" onClick={() => this.handleSellStockClick()}>Sell Stock</Button> 
+                                {/* <Button className="ml-2" onClick={() => this.handleSellStockClick()}>Sell Stock</Button>  */}
                                 <Button className="ml-2" onClick={() => this.handleAddAlternateRouteClick(this.state.investment[0].id)}>Add Alternate Route</Button> 
                                 </>
                             )

@@ -167,15 +167,37 @@
       "id": 14
     },
     {
-      "symbol": "BABA",
-      "stockName": "Alibaba Group Holding Ltd.",
-      "purchasePrice": 187.88,
-      "purchaseQty": "15.96764",
+      "symbol": "AFMD",
+      "stockName": "Affimed NV",
+      "purchasePrice": 2.56,
+      "purchaseQty": "1171.87500",
       "totalPrice": "3000",
       "parentId": 14,
-      "purchaseDate": 1573150705245,
+      "purchaseDate": 1573250841329,
       "userId": "4",
       "id": 15
+    },
+    {
+      "symbol": "BFRA",
+      "stockName": "Biofrontera AG",
+      "purchasePrice": 11.35,
+      "purchaseQty": "264.31718",
+      "totalPrice": "3000",
+      "parentId": 14,
+      "purchaseDate": 1573250856138,
+      "userId": "4",
+      "id": 16
+    },
+    {
+      "symbol": "AFMD",
+      "stockName": "Affimed NV",
+      "purchasePrice": 2.56,
+      "purchaseQty": "781.25000",
+      "totalPrice": "2000",
+      "parentId": 12,
+      "purchaseDate": 1573251430857,
+      "userId": "4",
+      "id": 17
     }
   ],
   "watchlists": [
@@ -184,12 +206,6 @@
       "symbol": "FB",
       "stockName": "Facebook, Inc.",
       "id": 2
-    },
-    {
-      "userId": 4,
-      "symbol": "BABA",
-      "stockName": "Alibaba Group Holding Ltd.",
-      "id": 3
     }
   ]
 }
