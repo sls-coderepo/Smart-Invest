@@ -27,7 +27,7 @@
     {
       "firstName": "Shirish",
       "lastName": "Shrestha",
-      "emailAddress": "shrestha@hotmail.com",
+      "emailAddress": "shrestha@gmail.com",
       "userName": "shirish",
       "password": "shirish",
       "id": 4
@@ -99,6 +99,83 @@
       "purchaseDate": 1573099691948,
       "userId": "3",
       "id": 8
+    },
+    {
+      "userId": 2,
+      "symbol": "FIT",
+      "stockName": "Fitbit, Inc.",
+      "purchasePrice": 7.03,
+      "purchaseQty": "20",
+      "totalPrice": "140.60000",
+      "purchaseDate": 1573104244272,
+      "parentId": 0,
+      "id": 9
+    },
+    {
+      "userId": 2,
+      "symbol": "GTX",
+      "stockName": "Garrett Motion, Inc.",
+      "purchasePrice": 10.09,
+      "purchaseQty": "99.10803",
+      "totalPrice": "1000",
+      "purchaseDate": 1573104276691,
+      "parentId": 0,
+      "id": 10
+    },
+    {
+      "symbol": "BURL",
+      "stockName": "Burlington Stores, Inc.",
+      "purchasePrice": 202.96,
+      "purchaseQty": "4.92708",
+      "totalPrice": "1000",
+      "parentId": 10,
+      "purchaseDate": 1573104301671,
+      "userId": "2",
+      "id": 11
+    },
+    {
+      "userId": 4,
+      "symbol": "CIT",
+      "stockName": "CIT Group, Inc.",
+      "purchasePrice": 44.835,
+      "purchaseQty": "44.60801",
+      "totalPrice": "2000",
+      "purchaseDate": 1573150580558,
+      "parentId": 0,
+      "id": 12
+    },
+    {
+      "userId": 4,
+      "symbol": "JPM",
+      "stockName": "JPMorgan Chase & Co.",
+      "purchasePrice": 131.09,
+      "purchaseQty": "20",
+      "totalPrice": "2621.80000",
+      "purchaseDate": 1573150599227,
+      "parentId": 0,
+      "id": 13
+    },
+    {
+      "userId": 4,
+      "symbol": "FB",
+      "stockName": "Facebook, Inc.",
+      "purchasePrice": 192.03,
+      "purchaseQty": "15.62256",
+      "totalPrice": "3000",
+      "purchaseDate": 1573150683146,
+      "parentId": 0,
+      "id": 14
+    },
+    {
+      "symbol": "BABA",
+      "stockName": "Alibaba Group Holding Ltd.",
+      "purchasePrice": 187.88,
+      "purchaseQty": "15.96764",
+      "totalPrice": "3000",
+      "parentId": 14,
+      "purchaseDate": 1573150705245,
+      "userId": "4",
+      "id": 15
     }
   ],
   "watchlists": [
@@ -107,6 +184,12 @@
       "symbol": "FB",
       "stockName": "Facebook, Inc.",
       "id": 2
+    },
+    {
+      "userId": 4,
+      "symbol": "BABA",
+      "stockName": "Alibaba Group Holding Ltd.",
+      "id": 3
     }
   ]
 }
