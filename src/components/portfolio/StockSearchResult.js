@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import {Table, Button} from 'reactstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faPlus} from '@fortawesome/free-solid-svg-icons'
 
 class StockSearchResult extends Component {
     
@@ -18,7 +20,7 @@ class StockSearchResult extends Component {
                     <tr>
                         <td>{stock.symbol}</td>
                         <td>{stock.name}</td>
-                        <td className="text-right"><Button size="sm" onClick={() =>{this.props.handleAddAlternate(stock.symbol)}}>Add</Button></td>
+                        <td className="text-right"><Button size="sm" color="info" onClick={() =>{this.props.handleAddAlternate(stock.symbol)}}><FontAwesomeIcon icon={faPlus}/>{" "}Add </Button></td>
                     </tr>
                 ))}
                 </tbody>

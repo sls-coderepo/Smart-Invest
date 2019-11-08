@@ -1,17 +1,21 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import moment from 'moment'
-import {Table} from 'reactstrap'
+import {Table,Button} from 'reactstrap'
 import API from '../../modules/API.Manager'
 import NumberFormat from 'react-number-format';
 import APIIex from '../../modules/API.IEXManager';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faTrashAlt} from '@fortawesome/free-solid-svg-icons'
+import Dialog from 'react-bootstrap-dialog'
 
 class AlternateStock extends Component {
     state = {
        alternateStockList: [],
        alternateWithCurrentValueList: [],
        investment:{},
-       loggedInUserId: sessionStorage.getItem('loggedInUserId')
+       loggedInUserId: sessionStorage.getItem('loggedInUserId'),
+       selectedAlternateRouteId:0
       }
      
     getLatestQuote = (symbols) =>
@@ -20,6 +24,31 @@ class AlternateStock extends Component {
             return data
         })
     }
+
+    showConfirmBox = (id) => {
+        this.setState({
+            selectedAlternateRouteId: id
+        })
+        this.dialog.show({
+            title: 'Delete Confirmation',
+            body: 'Are you sure you want to delete?',
+            actions: [
+              Dialog.CancelAction(),
+              Dialog.OKAction(() => {this.handleDelete()})
+            ],
+            bsSize: 'small',
+            onHide: (dialog) => {
+              dialog.hide()
+            }
+          })
+    }
+
+
+    handleDelete = () => {
+        API.delete(this.state.selectedAlternateRouteId, "investments").then(() => this.getData())
+        this.dialog.showAlert('Alternate route has been deleted.')
+    }
+
 
     getData = () => {
         let stockInvestmentList = []
@@ -64,6 +93,9 @@ class AlternateStock extends Component {
                console.log(stockInvestmentList)
                 }).then(() => Promise.all(stockInvestmentList)).then((values) => this.setState({alternateWithCurrentValueList:values}))
             }
+            else{
+                this.setState({alternateWithCurrentValueList:[]})
+            }
         })
     }
 
@@ -92,6 +124,7 @@ class AlternateStock extends Component {
                     <th className="text-right">Current Amount</th>
                     <th className="text-right">Change</th>
                     <th className="text-right">Purchase Date</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -106,11 +139,12 @@ class AlternateStock extends Component {
                            <td className="text-right"><NumberFormat value={alternate.totalAmount} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>   
                            <td className="text-right" style={{color: alternate.change > 0 ? "green" : alternate.change < 0 ? "red" : "black"}}><NumberFormat value={alternate.change} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/></td>                          
                            <td className="text-right">{moment(alternate.purchaseDate).format("lll")}</td>
+                           <td ><Button size="sm" color="danger" onClick={() => this.showConfirmBox(alternate.id)}><FontAwesomeIcon icon={faTrashAlt}/></Button></td>
                        </tr>)
                    })}
                 </tbody>
             </Table>
-           
+            <Dialog ref={(el) => { this.dialog = el }} />
             </>
 
         
