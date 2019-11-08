@@ -44,7 +44,7 @@ class Dashboard extends Component {
                 <CardImg top width="100%" src="/../images/grow1.jpg" alt="Card image cap" />
             <CardBody>
                 <CardTitle><h4>Grow</h4></CardTitle>
-                <CardText>Watch it gorw day by day.</CardText>
+                <CardText>Watch it grow day by day.</CardText>
             </CardBody>
             <CardFooter>
                 <Button color="secondary">Learn More</Button>
