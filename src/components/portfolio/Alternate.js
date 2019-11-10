@@ -5,6 +5,8 @@ import APIIex from '../../modules/API.IEXManager';
 import AlternateStock from './AlternateStock';
 import APIStockManager from '../../modules/API.StockManager'
 import API from '../../modules/API.Manager'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faSearch} from '@fortawesome/free-solid-svg-icons'
 
 class Alternate extends Component {
     state = {
@@ -86,7 +88,7 @@ class Alternate extends Component {
                                                          }
                                                      }}
                                                      /* value={this.state.keyword} */></Input>
-            <InputGroupAddon addonType="append"><Button onClick={this.searchStock}>Search</Button></InputGroupAddon>
+            <InputGroupAddon addonType="append"><Button onClick={this.searchStock}><FontAwesomeIcon icon={faSearch}/></Button></InputGroupAddon>
         </InputGroup>
         </Alert>
         

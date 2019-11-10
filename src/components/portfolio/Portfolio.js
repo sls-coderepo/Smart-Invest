@@ -5,6 +5,9 @@ import PortfolioSearchResult from './PortfolioSearchResult';
 import InvestmentResult from './InvestmentResult';
 import WatchList from '../portfolio/WatchList'
 import Dialog from 'react-bootstrap-dialog'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faSearch} from '@fortawesome/free-solid-svg-icons'
+
 class Portfolio extends Component {
     state = {
        keyword: "",
@@ -53,7 +56,7 @@ class Portfolio extends Component {
                                                                             this.searchStock(event)
                                                                             }
                                                                         }}></Input>
-            <InputGroupAddon addonType="append"><Button onClick={this.searchStock}>Search</Button></InputGroupAddon>
+            <InputGroupAddon addonType="append"><Button onClick={this.searchStock}><FontAwesomeIcon icon={faSearch}/></Button></InputGroupAddon>
         </InputGroup>
         </Alert>
         
