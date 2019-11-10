@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import {Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap'
 import API from '../../modules/API.Manager'
 
-
 class StockPurchase extends Component {
     state = {
         stockDetails:{},
@@ -66,20 +65,13 @@ class StockPurchase extends Component {
     
 
     componentDidMount () {
-        
-        console.log(this.props.symbol)
-        /* APIIex.getQuote(this.props.symbol).then(data => {
-            console.log(data);
-            this.setState({
-                stockDetails: data
-            })
-        }); */
 
     }
 
     render() {
         const closeBtn = <Button className="close" onClick={this.props.togglePurchaseModal}>&times;</Button>
         return(
+            <>
             <Form>
                 <Modal isOpen={this.props.isPurchaseModalOpen} fade={false} toggle={this.props.togglePurchaseModal} className={this.props.className}>
                     <ModalHeader toggle={this.props.togglePurchaseModal}>Purchase</ModalHeader>
@@ -106,6 +98,7 @@ class StockPurchase extends Component {
                 </Modal>
               
             </Form> 
+            </>
         )
     }
 }

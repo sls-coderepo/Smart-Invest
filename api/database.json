@@ -209,6 +209,28 @@
       "purchaseDate": 1573358231727,
       "parentId": 0,
       "id": 18
+    },
+    {
+      "userId": 4,
+      "symbol": "BABA",
+      "stockName": "Alibaba Group Holding Ltd.",
+      "purchasePrice": 187.16,
+      "purchaseQty": "5",
+      "totalPrice": "935.80000",
+      "purchaseDate": 1573419395008,
+      "parentId": 0,
+      "id": 19
+    },
+    {
+      "symbol": "AAT",
+      "stockName": "American Assets Trust, Inc.",
+      "purchasePrice": 46.76,
+      "purchaseQty": "20.01283",
+      "totalPrice": "935.80000",
+      "parentId": 19,
+      "purchaseDate": 1573419555698,
+      "userId": "4",
+      "id": 20
     }
   ],
   "watchlists": [
@@ -220,8 +242,8 @@
     },
     {
       "userId": 4,
-      "symbol": "NET",
-      "stockName": "Cloudflare, Inc.",
+      "symbol": "GULF",
+      "stockName": "WisdomTree Middle East Dividend Fund",
       "id": 3
     }
   ]

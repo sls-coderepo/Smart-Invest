@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import {Alert,Input,InputGroup, InputGroupAddon, Button} from 'reactstrap'
-import APIStock from '../../modules/API.AlphaVintageManager';
+import APIStockManager from '../../modules/API.StockManager'
 import PortfolioSearchResult from './PortfolioSearchResult';
 import InvestmentResult from './InvestmentResult';
 import WatchList from '../portfolio/WatchList'
+import Dialog from 'react-bootstrap-dialog'
 class Portfolio extends Component {
     state = {
        keyword: "",
@@ -16,14 +17,22 @@ class Portfolio extends Component {
         this.setState(stateToChange)
     }
 
-    searchStock = (e) => {
-             e.preventDefault();
-             APIStock.search(this.state.keyword).then((data) => {
-                            this.setState({searchResult: data})
-                            console.log(data)
-                            })
-        } 
        
+    searchStock = () =>
+    {
+        APIStockManager.getStocks(this.state.keyword).then((data) => {
+            this.setState({
+                searchResult : data
+            })
+            }).then(()=>
+            {
+                if(!this.hasSymbols())
+                {
+                    this.dialog.showAlert('No stocks found matching the search keyword.')
+                }
+            })
+    } 
+
     hasSymbols = ()=>
     {
         if(this.state.searchResult.length > 0)
@@ -54,7 +63,7 @@ class Portfolio extends Component {
             {...this.props}/>
             <WatchList /></>
         }
-        
+        <Dialog ref={(el) => { this.dialog = el }} />
         </>
         
         )

@@ -11,13 +11,12 @@ class PortfolioSearchResult extends Component {
                 <tr>
                     <th>Symbol</th>
                     <th>Name</th>
-                    <th>Type</th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
                     {this.props.searchResult.map(stock => (
-                    <PortfolioSearchResultRecord key={stock["1. symbol"]} 
+                    <PortfolioSearchResultRecord key={stock.symbol} 
                                                  stock = {stock} 
                                                  {...this.props} />
                 ))}

@@ -5,13 +5,14 @@ class PortfolioSearchResultRecord extends Component {
     
     render(){
         return (
-
+            
                 <tr>
-                    <td><Link to={`/portfolio/${this.props.stock["1. symbol"]}`}>{this.props.stock["1. symbol"]}</Link></td>
-                    <td>{this.props.stock["2. name"]}</td>
-                    <td>{this.props.stock["3. type"]}</td>
-                    <td></td>
+                    <td><Link to={`/portfolio/${this.props.stock.symbol}`}>{this.props.stock.symbol}</Link></td>
+                    <td>{this.props.stock.name}</td>
+                    <td ></td>
                 </tr>
+            
+               
         )
     }
 } 
