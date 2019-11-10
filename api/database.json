@@ -198,6 +198,17 @@
       "purchaseDate": 1573251430857,
       "userId": "4",
       "id": 17
+    },
+    {
+      "userId": 4,
+      "symbol": "NET",
+      "stockName": "Cloudflare, Inc.",
+      "purchasePrice": 16.12,
+      "purchaseQty": "124.06948",
+      "totalPrice": "2000",
+      "purchaseDate": 1573358231727,
+      "parentId": 0,
+      "id": 18
     }
   ],
   "watchlists": [
@@ -206,6 +217,12 @@
       "symbol": "FB",
       "stockName": "Facebook, Inc.",
       "id": 2
+    },
+    {
+      "userId": 4,
+      "symbol": "NET",
+      "stockName": "Cloudflare, Inc.",
+      "id": 3
     }
   ]
 }
