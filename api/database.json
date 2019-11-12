@@ -35,7 +35,7 @@
   ],
   "investments": [
     {
-      "userId": 3,
+      "userId": 4,
       "symbol": "AAPL",
       "stockName": "Apple, Inc.",
       "purchasePrice": 248.76,
@@ -53,7 +53,7 @@
       "totalPrice": "1000",
       "parentId": 1,
       "purchaseDate": 1572583925522,
-      "userId": "3",
+      "userId": "4",
       "id": 4
     },
     {
@@ -200,37 +200,26 @@
       "id": 17
     },
     {
-      "userId": 4,
-      "symbol": "NET",
-      "stockName": "Cloudflare, Inc.",
-      "purchasePrice": 16.12,
-      "purchaseQty": "124.06948",
+      "userId": 3,
+      "symbol": "BABA",
+      "stockName": "Alibaba Group Holding Ltd.",
+      "purchasePrice": 187.01,
+      "purchaseQty": "10.69462",
       "totalPrice": "2000",
-      "purchaseDate": 1573358231727,
+      "purchaseDate": 1573505900727,
       "parentId": 0,
       "id": 18
     },
     {
-      "userId": 4,
-      "symbol": "BABA",
-      "stockName": "Alibaba Group Holding Ltd.",
-      "purchasePrice": 187.16,
-      "purchaseQty": "5",
-      "totalPrice": "935.80000",
-      "purchaseDate": 1573419395008,
+      "userId": 3,
+      "symbol": "WFC",
+      "stockName": "Wells Fargo & Co.",
+      "purchasePrice": 54.05,
+      "purchaseQty": "100",
+      "totalPrice": "5405.00000",
+      "purchaseDate": 1573517165296,
       "parentId": 0,
       "id": 19
-    },
-    {
-      "symbol": "AAT",
-      "stockName": "American Assets Trust, Inc.",
-      "purchasePrice": 46.76,
-      "purchaseQty": "20.01283",
-      "totalPrice": "935.80000",
-      "parentId": 19,
-      "purchaseDate": 1573419555698,
-      "userId": "4",
-      "id": 20
     }
   ],
   "watchlists": [
@@ -242,9 +231,21 @@
     },
     {
       "userId": 4,
-      "symbol": "GULF",
-      "stockName": "WisdomTree Middle East Dividend Fund",
+      "symbol": "BAC",
+      "stockName": "Bank of America Corp.",
       "id": 3
+    },
+    {
+      "userId": 4,
+      "symbol": "AOBC",
+      "stockName": "American Outdoor Brands Corp.",
+      "id": 4
+    },
+    {
+      "userId": 3,
+      "symbol": "WFC",
+      "stockName": "Wells Fargo & Co.",
+      "id": 5
     }
   ]
 }

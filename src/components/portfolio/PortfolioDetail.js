@@ -24,6 +24,7 @@ class PortfolioDetail extends Component {
         chartData: {},
         totalToday:0,
         totalGain:0,
+        isSymbolInWatchList: false,
        
     }
 
@@ -66,6 +67,17 @@ class PortfolioDetail extends Component {
                 })
                 }).then(()=>this.calculateTotal())
         }).then(() => {this.makeChartData() });
+
+        API.getWatchListBySymbol(this.props.symbol, this.state.loggedInUserId).then(data => {
+            if(data.length>0)
+            {
+                this.setState(
+                    {
+                        isSymbolInWatchList: true
+                    }
+                )
+            }
+        })
     }
 
     calculateTotal () {
@@ -234,7 +246,8 @@ class PortfolioDetail extends Component {
                             :
                             (
                                 <>
-                                <Button className="ml-2" onClick={() => this.handleAddToWatchListClick()}>Add to Watchlist</Button> 
+                                {(!this.state.isSymbolInWatchList)?
+                                (<Button className="ml-2" onClick={() => this.handleAddToWatchListClick()}>Add to Watchlist</Button>):null}
                                 <Button className="ml-2" onClick={() => {this.togglePurchaseModal()}}>Buy</Button> 
                                 </>
                             )

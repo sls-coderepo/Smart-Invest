@@ -94,7 +94,7 @@ class WatchList extends Component {
         return(
             <>
             <h4>Watch List</h4>
-            <Table>
+            <Table responsive>
                
                 <thead>
                 <tr>
