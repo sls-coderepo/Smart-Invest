@@ -66,9 +66,11 @@ const API = {
       getAlternateStocks: (investmentId, userId) =>
       {
         return fetch(`${remoteURL}/investments/?parentId=${investmentId}&userId=${userId}`).then(e => e.json())
-      }
+      },
        
-     
+      getWatchListBySymbol: (symbol, userId) => {
+        return fetch(`${remoteURL}/watchlists/?symbol=${symbol}&userId=${userId}`).then(e => e.json())
+      }
 }
 
  export default API

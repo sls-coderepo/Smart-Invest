@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import moment from 'moment'
-import {Table, Row, Col} from 'reactstrap'
+import {Table, Row, Col, Jumbotron} from 'reactstrap'
 import API from '../../modules/API.Manager'
 import NumberFormat from 'react-number-format';
 import APIIex from '../../modules/API.IEXManager';
@@ -101,7 +101,7 @@ class InvestmentResult extends Component {
         return (
             <>
             <h4>Portfolio</h4>
-            <Table striped>
+            <Table striped responsive>
                 <thead>
                 <tr>
                     <th>Symbol</th>
@@ -131,8 +131,8 @@ class InvestmentResult extends Component {
                    })}
                 </tbody>
             </Table>
-            <div className="mt-5">
-            <Row mt-5="true">
+            <Jumbotron className="mt-5">
+            <Row >
                 <Col md-6="true">
                     <Table striped>
                         <tr>
@@ -161,8 +161,8 @@ class InvestmentResult extends Component {
                 />
                 </Col>
             </Row>
-            </div>
-            
+
+            </Jumbotron>
             </>
         )
 } 

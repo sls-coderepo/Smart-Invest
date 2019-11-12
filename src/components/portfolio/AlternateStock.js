@@ -112,7 +112,7 @@ class AlternateStock extends Component {
             <>
             <h5>Alternate Routes for {this.state.investment.symbol}</h5>
 
-            <Table striped size="sm">
+            <Table striped size="sm" responsive>
                 <thead>
                 <tr>
                     <th>Symbol</th>
