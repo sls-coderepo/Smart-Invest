@@ -1,30 +1,6 @@
 {
   "users": [
     {
-      "firstName": "mks",
-      "lastName": "mk",
-      "emailAddress": "mk@mk.com",
-      "userName": "mk",
-      "password": "mk",
-      "id": 1
-    },
-    {
-      "firstName": "Shrijan",
-      "lastName": "Shrestha",
-      "emailAddress": "shrijan@shrijan.com",
-      "userName": "shrijan",
-      "password": "shrijan",
-      "id": 2
-    },
-    {
-      "firstName": "Mrinav",
-      "lastName": "Shrestha",
-      "emailAddress": "mrinav@123.com",
-      "userName": "mrinav",
-      "password": "mrinav",
-      "id": 3
-    },
-    {
       "firstName": "Shirish",
       "lastName": "Shrestha",
       "emailAddress": "shrestha@gmail.com",
@@ -51,201 +27,40 @@
       "purchasePrice": 191.65,
       "purchaseQty": "5.21785",
       "totalPrice": "1000",
-      "parentId": 1,
+      "parentId": 0,
       "purchaseDate": 1572583925522,
       "userId": "4",
       "id": 4
     },
     {
-      "userId": 3,
-      "symbol": "AMZN",
-      "stockName": "Amazon.com, Inc.",
-      "purchasePrice": 1789.92,
-      "purchaseQty": "2",
-      "totalPrice": "3579.84000",
-      "purchaseDate": 1572640644826,
+      "userId": 4,
+      "symbol": "MSFT",
+      "stockName": "Microsoft Corp.",
+      "purchasePrice": 150.39,
+      "purchaseQty": "50",
+      "totalPrice": "7519.50000",
+      "purchaseDate": 1574215637950,
       "parentId": 0,
       "id": 5
     },
     {
-      "symbol": "FB",
-      "stockName": "Facebook, Inc.",
-      "purchasePrice": 193.62,
-      "purchaseQty": "46.22250",
-      "totalPrice": "8949.60000",
-      "parentId": 5,
-      "purchaseDate": 1572640663662,
-      "userId": "3",
-      "id": 6
-    },
-    {
-      "userId": 3,
-      "symbol": "FB",
-      "stockName": "Facebook, Inc.",
-      "purchasePrice": 191.55,
-      "purchaseQty": "20.88228",
-      "totalPrice": "4000",
-      "purchaseDate": 1573098739918,
-      "parentId": 0,
-      "id": 7
-    },
-    {
-      "symbol": "ACT",
-      "stockName": "AdvisorShares Vice ETF",
-      "purchasePrice": 24.2,
-      "purchaseQty": "165.28926",
-      "totalPrice": "4000",
-      "parentId": 7,
-      "purchaseDate": 1573099691948,
-      "userId": "3",
-      "id": 8
-    },
-    {
-      "userId": 2,
-      "symbol": "FIT",
-      "stockName": "Fitbit, Inc.",
-      "purchasePrice": 7.03,
-      "purchaseQty": "20",
-      "totalPrice": "140.60000",
-      "purchaseDate": 1573104244272,
-      "parentId": 0,
-      "id": 9
-    },
-    {
-      "userId": 2,
-      "symbol": "GTX",
-      "stockName": "Garrett Motion, Inc.",
-      "purchasePrice": 10.09,
-      "purchaseQty": "99.10803",
-      "totalPrice": "1000",
-      "purchaseDate": 1573104276691,
-      "parentId": 0,
-      "id": 10
-    },
-    {
-      "symbol": "BURL",
-      "stockName": "Burlington Stores, Inc.",
-      "purchasePrice": 202.96,
-      "purchaseQty": "4.92708",
-      "totalPrice": "1000",
-      "parentId": 10,
-      "purchaseDate": 1573104301671,
-      "userId": "2",
-      "id": 11
-    },
-    {
-      "userId": 4,
-      "symbol": "CIT",
-      "stockName": "CIT Group, Inc.",
-      "purchasePrice": 44.835,
-      "purchaseQty": "44.60801",
-      "totalPrice": "2000",
-      "purchaseDate": 1573150580558,
-      "parentId": 0,
-      "id": 12
-    },
-    {
-      "userId": 4,
-      "symbol": "JPM",
-      "stockName": "JPMorgan Chase & Co.",
-      "purchasePrice": 131.09,
-      "purchaseQty": "20",
-      "totalPrice": "2621.80000",
-      "purchaseDate": 1573150599227,
-      "parentId": 0,
-      "id": 13
-    },
-    {
-      "userId": 4,
-      "symbol": "FB",
-      "stockName": "Facebook, Inc.",
-      "purchasePrice": 192.03,
-      "purchaseQty": "15.62256",
-      "totalPrice": "3000",
-      "purchaseDate": 1573150683146,
-      "parentId": 0,
-      "id": 14
-    },
-    {
-      "symbol": "AFMD",
-      "stockName": "Affimed NV",
-      "purchasePrice": 2.56,
-      "purchaseQty": "1171.87500",
-      "totalPrice": "3000",
-      "parentId": 14,
-      "purchaseDate": 1573250841329,
-      "userId": "4",
-      "id": 15
-    },
-    {
-      "symbol": "BFRA",
-      "stockName": "Biofrontera AG",
-      "purchasePrice": 11.35,
-      "purchaseQty": "264.31718",
-      "totalPrice": "3000",
-      "parentId": 14,
-      "purchaseDate": 1573250856138,
-      "userId": "4",
-      "id": 16
-    },
-    {
-      "symbol": "AFMD",
-      "stockName": "Affimed NV",
-      "purchasePrice": 2.56,
-      "purchaseQty": "781.25000",
-      "totalPrice": "2000",
-      "parentId": 12,
-      "purchaseDate": 1573251430857,
-      "userId": "4",
-      "id": 17
-    },
-    {
-      "userId": 3,
       "symbol": "BABA",
       "stockName": "Alibaba Group Holding Ltd.",
-      "purchasePrice": 187.01,
-      "purchaseQty": "10.69462",
-      "totalPrice": "2000",
-      "purchaseDate": 1573505900727,
-      "parentId": 0,
-      "id": 18
-    },
-    {
-      "userId": 3,
-      "symbol": "WFC",
-      "stockName": "Wells Fargo & Co.",
-      "purchasePrice": 54.05,
-      "purchaseQty": "100",
-      "totalPrice": "5405.00000",
-      "purchaseDate": 1573517165296,
-      "parentId": 0,
-      "id": 19
+      "purchasePrice": 185.25,
+      "purchaseQty": "40.59109",
+      "totalPrice": "7519.50000",
+      "parentId": 5,
+      "purchaseDate": 1574215688539,
+      "userId": "4",
+      "id": 6
     }
   ],
   "watchlists": [
     {
-      "userId": 3,
-      "symbol": "FB",
-      "stockName": "Facebook, Inc.",
-      "id": 2
-    },
-    {
       "userId": 4,
-      "symbol": "BAC",
-      "stockName": "Bank of America Corp.",
-      "id": 3
-    },
-    {
-      "userId": 4,
-      "symbol": "AOBC",
-      "stockName": "American Outdoor Brands Corp.",
-      "id": 4
-    },
-    {
-      "userId": 3,
-      "symbol": "WFC",
-      "stockName": "Wells Fargo & Co.",
-      "id": 5
+      "symbol": "BABA",
+      "stockName": "Alibaba Group Holding Ltd.",
+      "id": 6
     }
   ]
 }
